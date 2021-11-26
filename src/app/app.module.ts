@@ -10,10 +10,15 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 
 import {MatChipsModule} from '@angular/material/chips';
+import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
+import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidenavMenuComponent,
+    WrapperComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatButtonModule,
     MatChipsModule,
     MatToolbarModule
-  ],
+  ], exports: [SidenavMenuComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
