@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar{
+    background: #137F41;
+}
+
+mat-icon{
+    color: white;
+}

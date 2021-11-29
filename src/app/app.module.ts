@@ -13,12 +13,14 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {MatChipsModule} from '@angular/material/chips';
 import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
-import { HeaderComponent } from './header/header.component';
+import { HeadertoolbarComponent } from './headertoolbar/headertoolbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidenavMenuComponent,
-    HeaderComponent
+    HeadertoolbarComponent,
+
   ],
   imports: [
     BrowserModule,

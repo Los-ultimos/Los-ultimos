@@ -10,6 +10,6 @@ export class AppComponent {
   sideBarOpen=true;
 
   sideBarToggler(){
-    this.sideBarOpen!=this.sideBarOpen
+    this.sideBarOpen=!this.sideBarOpen
   }
 }
