@@ -23,6 +23,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
+import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormdecesosComponent } from './formdecesos/formdecesos.component';
     HeadertoolbarComponent,
     FormanimalComponent,
     FormdecesosComponent,
+    FormfichasmedicasComponent,
 
   ],
   imports: [

@@ -1,0 +1,118 @@
+<h1 mat-dialog-title>Registrar Ficha Médica</h1>
+<hr>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="column">
+            <h3>Datos de la ficha</h3>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Número de ficha</mat-label>
+                <input matInput type="number">
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Tipo de consulta</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Consulta </mat-option>
+                    <mat-option value="option2">Re consulta</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>Veterinario responsable</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline"> 
+                <mat-label>Atención en el albergue</mat-label>
+                <mat-select>
+                    <mat-option value="option1">1ra vez</mat-option>
+                    <mat-option value="option2">A veces</mat-option>
+                    <mat-option value="option3">Con frecuencia</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">   
+                <mat-label>Fecha de registro de ficha</mat-label>    
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="column">
+            <h3>Datos del animal</h3>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Especie</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Sexo</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Color</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Raza</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Edad</mat-label>
+                <input matInput  type="number">
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Esterilizado</mat-label>
+                <input matInput  >
+            </mat-form-field>
+            <p>Vacunas</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <textarea matInput rows="2" class="textAreaType"></textarea>
+            </mat-form-field>
+
+            <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+            
+            <h3>Datos del propietario</h3>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Nombre y apellido</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Cédula de identidad</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Celular</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Distrito</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Barrio</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+                <mat-label>Zona</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+                <mat-label>Dirección</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </div>
+            
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial>Registrar ficha médica</button>
+</div>
+
