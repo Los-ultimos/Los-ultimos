@@ -4,6 +4,9 @@
   </mat-drawer>
   <mat-drawer-content>
     <app-headertoolbar (toggleSideBarForMe)="sideBarToggler()"></app-headertoolbar>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

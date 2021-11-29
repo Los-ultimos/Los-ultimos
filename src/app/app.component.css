@@ -12,3 +12,12 @@ mat-drawer{
 mat-drawer-container{
     height: 100%;
 }
+
+app-formanimal{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border: 0.25vh solid ;
+}
+
+
