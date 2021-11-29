@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormanimalComponent } from './formanimal/formanimal.component';
+import { FormdecesosComponent } from './formdecesos/formdecesos.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog){}
 
   openDialog():void{
-    const dialogRef=this.dialog.open(FormanimalComponent, {width:'250vh'})
+    const dialogRef=this.dialog.open(FormdecesosComponent, {width:'250vh'})
   }
 
 
