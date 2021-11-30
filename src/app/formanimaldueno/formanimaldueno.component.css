@@ -72,4 +72,19 @@
     font-family: 'Inter';
     font-size: large;
     margin: 1%;
+    display: flex;
   }
+
+  .telephone-right-align {
+    margin-left: 8px;
+    text-align: right;
+  }
+
+input.telephone-right-align::-webkit-outer-spin-button,
+input.telephone-right-align:-webkit-inner-spin-button {
+  display: none;
+}
+
+input.telephone-right-align {
+  -moz-appearance: textfield;
+}
