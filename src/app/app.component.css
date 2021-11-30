@@ -28,4 +28,11 @@ app-formfichasmedicas{
     align-items: center;
 }
 
-
+app-formanimaldueno{
+    
+    display: flex;
+    flex-direction: column;
+    border: 0.25vh solid ;
+    justify-content: center;
+    align-items: center;
+}

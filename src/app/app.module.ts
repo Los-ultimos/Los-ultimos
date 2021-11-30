@@ -24,6 +24,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
+import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedica
     FormanimalComponent,
     FormdecesosComponent,
     FormfichasmedicasComponent,
+    FormanimalduenoComponent,
 
   ],
   imports: [

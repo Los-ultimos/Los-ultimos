@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormanimalComponent } from './formanimal/formanimal.component';
+import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 
@@ -19,7 +20,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog){}
 
   openDialog():void{
-    const dialogRef=this.dialog.open(FormfichasmedicasComponent, {width:'150vh'})
+    const dialogRef=this.dialog.open(FormanimalduenoComponent, {width:'250vh'})
   }
 
 
