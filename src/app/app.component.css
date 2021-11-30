@@ -38,7 +38,16 @@ app-formanimaldueno{
 }
 
 
-app-formfichasmedicas{
+app-formcarnet{
+    display: flex;
+    flex-direction: column;
+    border: 0.25vh solid ;
+    justify-content: center;
+    align-items: center;
+}
+
+
+app-formemail{
     display: flex;
     flex-direction: column;
     border: 0.25vh solid ;
