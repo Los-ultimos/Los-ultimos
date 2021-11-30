@@ -1,0 +1,50 @@
+.column {
+    float: left;
+    width: 50% !important;
+    padding:50px;
+    height: max-content;
+    border-right: 1px solid #333; 
+    border-left: 1px solid #333; 
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.fieldType{
+    width: 50%;
+}
+
+.entireField{
+  width: 100%;
+}
+
+
+.textAreaType{
+  resize : none;
+}
+
+h1{
+  text-align: center;
+  padding-top: 25px;
+  font-size: 30px;
+  font-family: 'Inter';
+}
+
+
+.mat-dialog-actions {
+  justify-content: center;
+}
+
+button{
+  background-color: #137F41;
+  padding: 15px;
+  border-radius: 20px;
+  color: white ;
+  font-family: 'Inter';
+  font-size: large;
+  margin: 1%;
+}

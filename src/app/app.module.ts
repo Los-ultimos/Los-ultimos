@@ -10,15 +10,34 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
-import { HeaderComponent } from './header/header.component';
+import { HeadertoolbarComponent } from './headertoolbar/headertoolbar.component';
+import { FormanimalComponent } from './formanimal/formanimal.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { FormdecesosComponent } from './formdecesos/formdecesos.component';
+import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
+import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
+import { FormcarnetComponent } from './formcarnet/formcarnet.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidenavMenuComponent,
-    HeaderComponent
+    HeadertoolbarComponent,
+    FormanimalComponent,
+    FormdecesosComponent,
+    FormfichasmedicasComponent,
+    FormanimalduenoComponent,
+    FormcarnetComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +50,15 @@ import { HeaderComponent } from './header/header.component';
     MatChipsModule,
     MatToolbarModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule, 
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

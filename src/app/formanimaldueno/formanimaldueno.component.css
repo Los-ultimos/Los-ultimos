@@ -1,0 +1,90 @@
+.column {
+    float: left;
+    width: 50% !important;
+    padding-left:50px;
+    padding-right:50px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    height: max-content;
+    border-right: 1px solid #333; 
+    border-left: 1px solid #333; 
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  
+  .fieldType{
+    font-family: 'inter';
+      justify-items: center;
+      width: 50%;
+  }
+  
+  .entireField{
+    font-family: 'inter';
+    width: 100%;
+  }
+  
+  
+  .inputField{
+    font-family: 'inter';
+    width: 30%;
+  }
+  
+  .textAreaType{
+    resize : none;
+  }
+  
+  h1{
+    text-align: center;
+    padding-top: 25px;
+    font-size: 30px;
+    font-family: 'Inter';
+  }
+  
+  h2{
+    text-align: center;
+    font-family: 'inter';
+  }
+  p{
+    font-family: 'inter';
+  }
+  
+  .mat-dialog-actions {
+    justify-content: center;
+  }
+  
+  .mat-dialog-content {
+    font-family: 'Inter';
+    justify-content: center;
+  }
+  
+  
+  button{
+    background-color: #137F41;
+    padding: 15px;
+    border-radius: 20px;
+    color: white ;
+    font-family: 'Inter';
+    font-size: large;
+    margin: 1%;
+    display: flex;
+  }
+
+  .telephone-right-align {
+    margin-left: 8px;
+    text-align: right;
+  }
+
+input.telephone-right-align::-webkit-outer-spin-button,
+input.telephone-right-align:-webkit-inner-spin-button {
+  display: none;
+}
+
+input.telephone-right-align {
+  -moz-appearance: textfield;
+}

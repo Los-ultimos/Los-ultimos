@@ -1,0 +1,141 @@
+<h1 mat-dialog-title>Registrar atención médica</h1>
+<hr>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="column">
+            <p>Síntomas</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <textarea matInput rows="2" class="textAreaType"></textarea>
+            </mat-form-field>
+            <p>Signos clínicos</p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Frecuencia cardíaca</mat-label>
+                            <input matInput type="number" placeholder="Ex. 12" min="10" >
+                             <span matSuffix>pulsaciones por minuto</span>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Temperatura</mat-label>
+                            <input matInput type="number" placeholder="Ex. 12" min="10">
+                             <span matSuffix>°C</span>
+                        </mat-form-field>
+            <p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Llenado capilar</mat-label>
+                            <input matInput type="number" placeholder="Ex. 12" min="1">
+                            <span matSuffix>segundos</span>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Mucosas</mat-label>
+                            <mat-select>
+                                <mat-option value="option1">Rosada</mat-option>
+                                <mat-option value="option2">Pálida</mat-option>
+                                <mat-option value="option3">Congestionada</mat-option>
+                                <mat-option value="option4">Ictérica</mat-option>
+                                <mat-option value="option5">Cianótica</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Hidratación</mat-label>
+                            <mat-select>
+                                <mat-option value="option1">Normal</mat-option>
+                                <mat-option value="option2">Deshidratación moderada</mat-option>
+                                <mat-option value="option3">Deshidratación leve</mat-option>
+                                <mat-option value="option4">Deshidratación grave</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Frecuencia respiratoria</mat-label>
+                            <input matInput type="number" placeholder="Ex. 12" min="10">
+                            <span matSuffix>respiraciones por minuto</span>
+                        </mat-form-field>
+                        <p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Pulso</mat-label>
+                            <input matInput type="number" placeholder="Ex. 12" min="10">
+                            <span matSuffix>latidos por minuto</span>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Estado general</mat-label>
+                            <mat-select>
+                                <mat-option value="option1">Bueno</mat-option>
+                                <mat-option value="option2">Malo</mat-option>
+                                <mat-option value="option3">Regular</mat-option>
+                                <mat-option value="option3">Sobrepeso</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Apetito</mat-label>
+                            <mat-select>
+                                <mat-option value="option1">Normal</mat-option>
+                                <mat-option value="option2">Disminuido</mat-option>
+                                <mat-option value="option3">Anorexico</mat-option>
+                                <mat-option value="option4">Caquexico</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+            <p>Pronostico</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input matInput>
+            </mat-form-field>
+           
+            
+        </div>
+        <div class="column">
+            <p>Tratamiento</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input matInput>
+            </mat-form-field>
+            <p>Laboratorios solicitados</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <textarea matInput rows="2" class="textAreaType"></textarea>
+            </mat-form-field>
+            <p>Atención</p>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha y hora de atención</mat-label>
+                <input matInput type="datetime-local" placeholder="start date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Estado de atención</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Atendido</mat-option>
+                    <mat-option value="option2">Postergado</mat-option>
+                    <mat-option value="option3">En espera de resultado</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>
+            <p>Veterinario responsable</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input matInput>
+            </mat-form-field>
+            <p>
+                
+            <p>Fechas para la atención</p>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de registro de atención</mat-label>
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de entrada</mat-label>
+                <input matInput [matDatepicker]="picker2">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de salida</mat-label>
+                <input matInput [matDatepicker]="picker3">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial>Registrar atención clínica</button>
+</div>

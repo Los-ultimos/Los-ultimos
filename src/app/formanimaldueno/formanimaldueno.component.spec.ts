@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoComponent } from './info.component';
+import { FormanimalduenoComponent } from './formanimaldueno.component';
 
-describe('InfoComponent', () => {
-  let component: InfoComponent;
-  let fixture: ComponentFixture<InfoComponent>;
+describe('FormanimalduenoComponent', () => {
+  let component: FormanimalduenoComponent;
+  let fixture: ComponentFixture<FormanimalduenoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InfoComponent ]
+      declarations: [ FormanimalduenoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoComponent);
+    fixture = TestBed.createComponent(FormanimalduenoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,123 @@
+<h1 mat-dialog-title>Registrar datos de animal y dueño</h1>
+<hr>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="column">
+            <h2>Datos del animal</h2>
+
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Nombre del animal</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Especie</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Can</mat-option>
+                    <mat-option value="option2">Felino</mat-option>
+                    <mat-option value="option3">Equino</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Sexo</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Macho</mat-option>
+                    <mat-option value="option2">Hembra</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Color</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">   
+                <mat-label>Fecha de nacimiento</mat-label>    
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Raza</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+
+            <button mat-button cdkFocusInitial>Subir foto</button>
+
+            <p>Vacunas</p>
+        <mat-form-field class="entireField" appearance="outline">
+            <textarea matInput rows="2" class="textAreaType"></textarea>
+        </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Edad</mat-label>
+                <input matInput  type="number">
+            </mat-form-field>
+        <mat-form-field class="inputField" appearance="outline">
+            <mat-label>Esterilizado</mat-label>
+            <mat-select>
+                <mat-option value="option1">Si</mat-option>
+                <mat-option value="option2">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="inputField" appearance="outline">   
+            <mat-label>Fecha de registro</mat-label>    
+            <input matInput [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+      
+            
+        </div>
+        <div class="column">
+
+            <!-- <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px"> -->
+            
+            <h2>Datos del propietario</h2>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Nombre y apellido</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Cédula de identidad</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <span matPrefix>+591</span>
+                <mat-label>Celular</mat-label>
+                <input matInput type="number" class="telephone-right-align">
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Distrito</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Barrio</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">
+                <mat-label>Zona</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="inputField" appearance="outline">   
+                <mat-label>Fecha de registro</mat-label>    
+                <input matInput [matDatepicker]="picker3">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+                <mat-label>Dirección</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput>
+            </mat-form-field>
+            
+        </div>
+    </div>
+            
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial>Registrar datos</button>
+</div>

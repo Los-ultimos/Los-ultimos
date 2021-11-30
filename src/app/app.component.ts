@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FormanimalComponent } from './formanimal/formanimal.component';
+import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
+import { FormcarnetComponent } from './formcarnet/formcarnet.component';
+import { FormdecesosComponent } from './formdecesos/formdecesos.component';
+import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +13,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cemzoocruz';
-  sideBarOpen=true;
-
+  sideBarOpen=false;
   sideBarToggler(){
-    this.sideBarOpen!=this.sideBarOpen
+    this.sideBarOpen=!this.sideBarOpen
   }
+
+  constructor(public dialog: MatDialog){}
+
+  openDialog():void{
+    const dialogRef=this.dialog.open(FormcarnetComponent, {width:'100vh'})
+  }
+
+
 }

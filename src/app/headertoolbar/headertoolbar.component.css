@@ -1,0 +1,15 @@
+.other-spacer {
+    flex: 1 1 auto;
+  }
+.icon{
+    height: fit-content;
+}
+mat-toolbar{
+    background: #137F41;
+    height: fit-content;
+}
+
+mat-icon{
+    height: max-content;
+    color: white;
+}
