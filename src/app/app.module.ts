@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
+import { FormcarnetComponent } from './formcarnet/formcarnet.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.comp
     FormdecesosComponent,
     FormfichasmedicasComponent,
     FormanimalduenoComponent,
+    FormcarnetComponent,
 
   ],
   imports: [
