@@ -4,6 +4,7 @@ import { FormanimalComponent } from './formanimal/formanimal.component';
 import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
 import { FormcarnetComponent } from './formcarnet/formcarnet.component';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
+import { FormdocumentoComponent } from './formdocumento/formdocumento.component';
 import { FormemailComponent } from './formemail/formemail.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 import { FormreporteComponent } from './formreporte/formreporte.component';
@@ -23,7 +24,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog){}
 
   openDialog():void{
-    const dialogRef=this.dialog.open(FormreporteComponent, {width:'100vh'})
+    const dialogRef=this.dialog.open(FormdocumentoComponent, {width:'80vh'})
   }
 
 

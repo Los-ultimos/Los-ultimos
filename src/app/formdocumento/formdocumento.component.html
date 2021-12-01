@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Generar documento</h1>
+<hr>
+<div mat-dialog-content>
+
+    <p>Seleccionar tipo de documento</p>
+    <mat-form-field class="inputField" appearance="outline">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select>
+            <mat-option value="option1">Tabla Excel</mat-option>
+            <mat-option value="option2">PDF</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p>Título</p> 
+    <mat-form-field class="inputField" appearance="outline">
+        <input matInput>
+    </mat-form-field>
+
+            
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial>Crear documento</button>
+</div>
