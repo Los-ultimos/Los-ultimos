@@ -6,6 +6,7 @@ import { FormcarnetComponent } from './formcarnet/formcarnet.component';
 import { FormdecesosComponent } from './formdecesos/formdecesos.component';
 import { FormemailComponent } from './formemail/formemail.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
+import { FormreporteComponent } from './formreporte/formreporte.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog){}
 
   openDialog():void{
-    const dialogRef=this.dialog.open(FormemailComponent, {width:'100vh'})
+    const dialogRef=this.dialog.open(FormreporteComponent, {width:'100vh'})
   }
 
 

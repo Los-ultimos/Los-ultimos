@@ -27,6 +27,7 @@ import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedica
 import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
 import { FormcarnetComponent } from './formcarnet/formcarnet.component';
 import { FormemailComponent } from './formemail/formemail.component';
+import { FormreporteComponent } from './formreporte/formreporte.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormemailComponent } from './formemail/formemail.component';
     FormanimalduenoComponent,
     FormcarnetComponent,
     FormemailComponent,
+    FormreporteComponent,
 
   ],
   imports: [
