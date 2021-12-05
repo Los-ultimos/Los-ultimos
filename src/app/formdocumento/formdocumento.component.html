@@ -1,23 +1,23 @@
 <h1 mat-dialog-title>Generar documento</h1>
 <hr>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="formReactive">
 
     <p>Seleccionar tipo de documento</p>
     <mat-form-field class="inputField" appearance="outline">
         <mat-label>Tipo de documento</mat-label>
-        <mat-select>
-            <mat-option value="option1">Tabla Excel</mat-option>
-            <mat-option value="option2">PDF</mat-option>
+        <mat-select formControlName="tipodocumento">
+            <mat-option value="Tabla Excel">Tabla Excel</mat-option>
+            <mat-option value="PDF">PDF</mat-option>
         </mat-select>
     </mat-form-field>
 
     <p>Título</p> 
     <mat-form-field class="inputField" appearance="outline">
-        <input matInput>
+        <input matInput formControlName="titulodocumento">
     </mat-form-field>
 
             
 </div>
 <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial>Crear documento</button>
+    <button mat-button cdkFocusInitial (click)="onShowAll()">Crear documento</button>
 </div>
