@@ -1,35 +1,35 @@
 <h1 mat-dialog-title>Registrar carnet</h1>
 <hr>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="formReactive">
 
     <p>Fecha de emision</p>   
     <mat-form-field class="inputField" appearance="outline">   
          
-        <input matInput [matDatepicker]="picker1">
+        <input matInput [matDatepicker]="picker1" formControlName="fechadeemisioncarnet">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
 
     <p>Fecha de expiracion</p> 
     <mat-form-field class="inputField" appearance="outline">   
-        <input matInput [matDatepicker]="picker2">
+        <input matInput [matDatepicker]="picker2" formControlName="fechadeexpiracioncarnet">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
     
     <p>Codigo de carnet</p> 
     <mat-form-field class="inputField" appearance="outline">
-        <input matInput>
+        <input matInput formControlName="codigocarnet">
     </mat-form-field>
 
     <p>Fecha de registro</p> 
     <mat-form-field class="inputField" appearance="outline">   
-        <input matInput [matDatepicker]="picker3">
+        <input matInput [matDatepicker]="picker3" formControlName="fechaderegistrocarnet">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
     </mat-form-field>
             
 </div>
 <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial>Registrar carnet</button>
+    <button mat-button cdkFocusInitial (click)="onShowAll()">Registrar carnet</button>
 </div>
