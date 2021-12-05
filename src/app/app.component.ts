@@ -24,7 +24,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog){}
 
   openDialog():void{
-    const dialogRef=this.dialog.open(FormdocumentoComponent, {width:'80vh'})
+    const dialogRef=this.dialog.open(FormanimalComponent, {width:'150vh'})
   }
 
 
