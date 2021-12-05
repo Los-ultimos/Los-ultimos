@@ -1,38 +1,39 @@
 <h1 mat-dialog-title>Generar reporte</h1>
 <hr>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="formReactive">
 
     <p>Seleccionar fuente</p>
     <mat-form-field class="inputField" appearance="outline">
         <mat-label>Fuente</mat-label>
-        <mat-select>
-            <mat-option value="option1">Animales</mat-option>
-            <mat-option value="option2">Propietarios</mat-option>
-            <mat-option value="option3">Carnets</mat-option>
-            <mat-option value="option4">Fichas médicas</mat-option>
-            <mat-option value="option5">Atenciones clínicas</mat-option>
-            <mat-option value="option2">Decesos</mat-option>
+        <mat-select formControlName="fuente">
+            <mat-option value="Animales">Animales</mat-option>
+            <mat-option value="Propietarios">Propietarios</mat-option>
+            <mat-option value="Carnets">Carnets</mat-option>
+            <mat-option value="Fichas médicas">Fichas médicas</mat-option>
+            <mat-option value="Atenciones clínicas">Atenciones clínicas</mat-option>
+            <mat-option value="Decesos">Decesos</mat-option>
         </mat-select>
     </mat-form-field>
 
     <p>Seleccionar criterio</p>
     <mat-form-field class="inputField" appearance="outline">
         <mat-label>Criterio</mat-label>
-        <mat-select>
-            <mat-option value="option1">Opcion 1</mat-option>
-            <mat-option value="option2">Opcion 2</mat-option>
-            <mat-option value="option3">Opcion 3</mat-option>
-            <mat-option value="option4">Opcion 4</mat-option>
-            <mat-option value="option5">Opcion 5</mat-option>
-            <mat-option value="option2">Opcion 6</mat-option>
+        <mat-select formControlName="criterio">
+            <mat-option value="Opcion 1">Opcion 1</mat-option>
+            <mat-option value="Opcion 2">Opcion 2</mat-option>
+            <mat-option value="Opcion 3">Opcion 3</mat-option>
+            <mat-option value="Opcion 4">Opcion 4</mat-option>
+            <mat-option value="Opcion 5">Opcion 5</mat-option>
+            <mat-option value="Opcion 6">Opcion 6</mat-option>
+            <!-- aqui se tendría que llenar automaticamente por base de datos esta lista -->
         </mat-select>
     </mat-form-field>
 
     <p>Fechas de búsqueda</p> 
     <mat-form-field class="inputField" appearance="outline">   
-        <mat-date-range-input  [rangePicker]="picker3">
-        <input matStartDate placeholder="Desde">
-        <input matEndDate placeholder="Hasta (misma fecha para una sola)">
+        <mat-date-range-input  [rangePicker]="picker3" >
+        <input matStartDate placeholder="Desde" formControlName="desde">
+        <input matEndDate placeholder="Hasta (misma fecha para una sola)" formControlName="hasta">
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-date-range-picker #picker3></mat-date-range-picker>
@@ -40,5 +41,5 @@
             
 </div>
 <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial>Crear reporte</button>
+    <button mat-button cdkFocusInitial (click)="onShowAll()">Crear reporte</button>
 </div>
