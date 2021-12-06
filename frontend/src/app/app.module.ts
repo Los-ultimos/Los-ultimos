@@ -27,6 +27,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFichaComponent } from './main-hub/dialogs/register-ficha/register-ficha.component';
 import { UserFichasComponent } from './main-hub/user-info/user-fichas/user-fichas.component';
+import { RegisterDecesoComponent } from './main-hub/dialogs/register-deceso/register-deceso.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserFichasComponent } from './main-hub/user-info/user-fichas/user-ficha
     UserAnimalesComponent,
     RegisterAnimalComponent,
     RegisterFichaComponent,
-    UserFichasComponent
+    UserFichasComponent,
+    RegisterDecesoComponent
   ],
   imports: [
     BrowserModule,

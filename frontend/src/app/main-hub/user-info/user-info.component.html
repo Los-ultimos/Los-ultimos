@@ -1,11 +1,15 @@
 <div class="container">
   <mat-tab-group animationDuration="0ms" #tabGroup [color]="'primary'">
     <mat-tab label="Animales">
-      <app-user-animales></app-user-animales>
+      <ng-template matTabContent>
+        <app-user-animales></app-user-animales>
+      </ng-template>
 
     </mat-tab>
     <mat-tab label="Fichas Medicas">
-      <app-user-fichas></app-user-fichas>
+      <ng-template matTabContent>
+        <app-user-fichas></app-user-fichas>
+      </ng-template>
     </mat-tab>
     <mat-tab label="Atencion Clinica">
       ATENCION CLINICA
@@ -17,3 +21,4 @@
   </mat-tab-group>
 
 </div>
+
