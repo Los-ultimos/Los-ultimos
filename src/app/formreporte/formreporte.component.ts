@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 @Component({
-  selector: 'app-formcarnet',
-  templateUrl: './formcarnet.component.html',
-  styleUrls: ['./formcarnet.component.css']
+  selector: 'app-formreporte',
+  templateUrl: './formreporte.component.html',
+  styleUrls: ['./formreporte.component.css']
 })
-export class FormcarnetComponent implements OnInit {
+export class FormreporteComponent implements OnInit {
 
   formReactive:FormGroup;
   
   constructor(private formBuilder:FormBuilder) {
 
     this.formReactive=this.formBuilder.group({
-      fechadeemisioncarnet:['',[Validators.required]],
-      fechadeexpiracioncarnet:['',[Validators.required]],
-      codigocarnet:['',[Validators.required]],
-      fechaderegistrocarnet:['',[Validators.required]],
+
+     fuente:['',[Validators.required,Validators.email]],
+      criterio:['',[Validators.required]],
+      desde:['',[Validators.required]],
+      hasta:['',[Validators.required]]
     });
      }
 

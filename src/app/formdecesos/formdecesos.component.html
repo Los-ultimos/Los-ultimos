@@ -1,25 +1,25 @@
 <h1 mat-dialog-title>Registrar Deceso</h1>
 <hr>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="formReactive">
     <div class="row">
         <div class="column">
             <p>Lugar de estancia</p>
-            <mat-form-field class="entireField" appearance="outline">
-                <input matInput>
+            <mat-form-field class="entireField" appearance="outline" >
+                <input matInput formControlName="lugardeestancia">
             </mat-form-field>
 
             
             <mat-form-field class="fieldType" appearance="outline">
                 <mat-label>Sector de deceso</mat-label>
-                <mat-select>
-                    <mat-option value="option1">Clínica</mat-option>
-                    <mat-option value="option2">Medicina interna</mat-option>
-                    <mat-option value="option3">Quirófano</mat-option>
+                <mat-select formControlName="sectordeceso">
+                    <mat-option value="Clínica">Clínica</mat-option>
+                    <mat-option value="Medicina interna">Medicina interna</mat-option>
+                    <mat-option value="Quirófano">Quirófano</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="fieldType" appearance="outline">
                 <mat-label>Fecha de registro de deceso</mat-label>
-                <input matInput [matDatepicker]="picker1">
+                <input matInput [matDatepicker]="picker1" formControlName="fecharegistrodeceso">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -27,42 +27,42 @@
 
             <p>Responsable del Sector</p>
             <mat-form-field class="entireField" appearance="outline">
-                <input matInput>
+                <input matInput formControlName="responsablesector">
             </mat-form-field>
 
             <p>Descripción</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="descripcion"></textarea>
             </mat-form-field>
 
             <p>Antecedentes</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="antecedentes"></textarea>
             </mat-form-field>
 
             <p>Acciones realizadas</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="accionesrealizadas"></textarea>
             </mat-form-field>
 
             <p>Informe de investigación epidemiológica</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="informedeinvestigacion"></textarea>
             </mat-form-field>
 
             <p>Causa</p>
             <mat-form-field class="entireField" appearance="outline">
-                <input matInput>
+                <input matInput formControlName="causa">
             </mat-form-field>
 
             <p>Descripción de causa o enfermedad</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="descripcioncausaenfermedad"></textarea>
             </mat-form-field>
 
             <p>Factores influyentes</p>
             <mat-form-field class="entireField" appearance="outline">
-                <textarea matInput rows="2" class="textAreaType"></textarea>
+                <textarea matInput rows="2" class="textAreaType" formControlName="factores"></textarea>
             </mat-form-field>
 
             
@@ -72,27 +72,27 @@
             <p>Datos del animal</p>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Nombre</mat-label>
-                <input matInput>
+                <input matInput formControlName="nombreanimal">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Especie</mat-label>
-                <input matInput>
+                <input matInput formControlName="especie">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Sexo</mat-label>
-                <input matInput>
+                <input matInput formControlName="sexo">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Color</mat-label>
-                <input matInput>
+                <input matInput formControlName="color">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input matInput>
+                <input matInput formControlName="fechanacimientoanimal">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Raza</mat-label>
-                <input matInput>
+                <input matInput formControlName="raza">
             </mat-form-field>
             
 
@@ -101,23 +101,23 @@
             <p>Datos del propietario</p>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Nombre y apellido</mat-label>
-                <input matInput>
+                <input matInput formControlName="nombredueno">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Cédula de identidad</mat-label>
-                <input matInput>
+                <input matInput formControlName="ci">
             </mat-form-field>
             <mat-form-field class="inputField" appearance="outline">
                 <mat-label>Celular</mat-label>
-                <input matInput>
+                <input matInput formControlName="telefono">
             </mat-form-field>
             <mat-form-field class="entireField" appearance="outline">
                 <mat-label>Dirección</mat-label>
-                <input matInput>
+                <input matInput formControlName="direccion">
             </mat-form-field>
         </div>
     </div>
 </div>
 <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial>Registrar deceso</button>
+    <button mat-button cdkFocusInitial (click)="onShowAll()">Registrar deceso</button>
 </div>

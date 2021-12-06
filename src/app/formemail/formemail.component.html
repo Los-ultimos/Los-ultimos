@@ -1,31 +1,30 @@
 <h1 mat-dialog-title>Registrar envío de carnet por correo</h1>
 <hr>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="formReactive">
 
     <p>Correo electrónico</p> 
     <mat-form-field class="inputField" appearance="outline">
-        <input matInput>
+        <input matInput formControlName="correo">
     </mat-form-field>
 
     <p>Estado</p>
     <mat-form-field class="inputField" appearance="outline">
-       
-        <mat-select>
-            <mat-option value="option1">Enviado</mat-option>
-            <mat-option value="option2">Sin Confirmar</mat-option>
-            <mat-option value="option3">Destino no valido</mat-option>
+        <mat-select formControlName="estadodeenvio">
+            <mat-option value="Enviado">Enviado</mat-option>
+            <mat-option value="Sin Confirmar">Sin Confirmar</mat-option>
+            <mat-option value="Destino no valido">Destino no valido</mat-option>
         </mat-select>
     </mat-form-field>
 
     <p>Fecha de registro</p> 
     <mat-form-field class="inputField" appearance="outline">   
-        <input matInput [matDatepicker]="picker3">
+        <input matInput [matDatepicker]="picker3" formControlName="fechaderegistroemail">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
     </mat-form-field>
             
 </div>
 <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial>Registrar envío</button>
+    <button mat-button cdkFocusInitial (click)="onShowAll()">Registrar envío</button>
 </div>
 
