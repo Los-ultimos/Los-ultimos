@@ -1,0 +1,73 @@
+<div class="container">
+  <h2 id="header"> Animales Registrados</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let animal of animals">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{animal.name}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>{{animal.species}}</p>
+          <span class="spacer"></span>
+          <p class="last">{{animal.age}} años</p>
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div class="container2">
+
+        <div>
+
+          <p><b>Informacion del Animal:</b></p>
+          <div class="animalinfo">
+            <img [src]=animal.picture alt="">
+            <div>
+              <p><b>Nombre: </b>{{animal.name}}.</p>
+              <p><b>Especie: </b>{{animal.species}}.</p>
+              <p><b>Sexo: </b>{{animal.sex}}.</p>
+              <p><b>Color: </b>{{animal.color}}.</p>
+              <p><b>Fecha de Nac: </b>{{animal.birthDate | date}}.</p>
+              <p><b>Raza: </b>{{animal.breed}}.</p>
+            </div>
+          </div>
+
+
+        </div>
+        <div>
+
+          <p><b>Informacion del Dueño:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Nombre: </b>{{animal.owner.name}}.</p>
+              <p><b>CI: </b>{{animal.owner.ci}}.</p>
+              <p><b>Telefono: </b>{{animal.owner.cellphone}}.</p>
+              <p><b>E-mail: </b>{{animal.owner.email}}.</p>
+              <p><b>Direccion: </b>{{animal.owner.address}}.</p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="selectors">
+          <button mat-flat-button  (click)="openFichaDialog(animal)">Generar Ficha Medica</button>
+          <button mat-flat-button  >Registrar Deceso</button>
+        </div>
+      </div>
+      <hr>
+
+      <div class="otrasOpciones">
+        <h4><b>Otras Opciones:</b> </h4>
+        <div >
+          <button mat-flat-button class="buttons" >Editar Animal / Dueño</button>
+          <button mat-flat-button class="buttons" >Registrar Carnet</button>
+          <button mat-flat-button  class="buttons">Enviar Carnet por Correo</button>
+          <button mat-flat-button  class="buttons">Editar Carnet</button>
+          <button mat-flat-button  class="buttons">Imprimir Carnet</button>
+          <button mat-flat-button class="buttons" >Eliminar Animal</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

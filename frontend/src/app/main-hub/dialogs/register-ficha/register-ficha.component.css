@@ -1,0 +1,67 @@
+.main{
+  max-width: 900px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap:wrap;
+
+
+  }
+
+  hr{
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    margin: 2em auto;
+    height: 4em;
+    width: fit-content;
+    background-color: #137f41;
+    color: white;
+  }
+
+  h2,h3 {
+    text-align: center;
+  }
+
+  textarea{
+    margin: 0.5em 1em;
+    height: 200px;
+
+    resize: none;
+  }
+
+  mat-form-field.mat-form-field {
+    width: 250px;
+    padding: 0.5em 1em;
+    margin: 0 auto;
+  }
+
+  mat-checkbox{
+    margin: 0.5em 1em;
+  }
+  .foto{
+    display: flex;
+    margin: 0.5em 1em;
+    flex-direction: column;
+  }
+
+
+  .checkbox{
+    margin: 0.5em auto;
+  }
+h1{
+  text-align: center;
+}
+
+
+
+

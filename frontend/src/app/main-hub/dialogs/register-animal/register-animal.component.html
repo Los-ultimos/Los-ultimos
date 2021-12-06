@@ -1,0 +1,225 @@
+<div class="main">
+  <form (ngSubmit)="addAnimal(postForm)" #postForm="ngForm">
+    <h2 mat-dialog-title>Datos del Animal y Propietario</h2>
+    <hr>
+
+    <mat-dialog-content class="mat-typography">
+      <h3>Datos del Propietario</h3>
+      <div class="container">
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label for="nombredueno">Nombre y Apellido: </mat-label>
+            <input
+            matInput
+            required
+            name="nombredueno"
+            type="text"
+            ngModel
+            #nombredueno
+            >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label for="ci">Cedula de Identidad: </mat-label>
+            <input
+            matInput
+            required
+            name="ci"
+            type="text"
+            ngModel
+            #ci
+            >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label for="cell">Celular: </mat-label>
+            <input
+            matInput
+            required
+            name="cell"
+            ngModel
+            #cell
+            type="tel">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label for="mail">Correo Electronico: </mat-label>
+            <input
+            matInput
+            required
+            name="email"
+            type="email"
+            ngModel
+            #email>
+          </mat-form-field>
+        </div>
+        <div class="row">
+
+          <mat-form-field appearance="outline">
+            <mat-label for="dist">Distrito: </mat-label>
+            <input
+            matInput
+            required
+            name="dist"
+            type="text"
+            ngModel
+            #dist>
+          </mat-form-field>
+          <mat-form-field appearance="outline" >
+            <mat-label for="zona">Zona: </mat-label>
+            <input
+            matInput
+            required
+            name="zona"
+            type="text"
+            ngModel
+            #zona >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label for="barrio">Barrio: </mat-label>
+            <input
+            matInput
+            required
+            name="barrio"
+            type="text"
+            ngModel
+            #barrio >
+          </mat-form-field>
+          <mat-form-field appearance="outline" >
+            <mat-label for="direc">Direccion: </mat-label>
+            <input
+            matInput
+            required
+            name="direc"
+            type="text"
+            ngModel
+            #direc>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="last">
+            <mat-label>Fecha de Registro: </mat-label>
+            <input matInput ngModel
+            name="registrodueno" [matDatepicker]="registrodueno">
+            <mat-datepicker-toggle matSuffix [for]="registrodueno"></mat-datepicker-toggle>
+            <mat-datepicker #registrodueno></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <h3>Datos del Animal</h3>
+      <hr>
+
+      <div class="container">
+        <div class="row">
+          <mat-form-field appearance="outline" >
+            <mat-label for="nombreanimal">Nombre del Animal: </mat-label>
+            <input
+            matInput
+            required
+            name="nombreanimal"
+            type="text"
+            ngModel
+            #nombreanimal>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label for="especie">Especie:</mat-label>
+            <mat-select name="especie"
+            matInput
+            required
+            type="text"
+            ngModel
+            #especie>
+              <mat-option *ngFor="let spec of species" [value]="spec.val" >
+                {{spec.val}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <mat-select name="sexo"
+            matInput
+            required
+            type="text"
+            ngModel
+            #sexo>
+              <mat-option value="macho">Macho</mat-option>
+              <mat-option value="hembra">Hembra</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label for="color">Color: </mat-label>
+            <input
+            matInput
+            required
+            type="text"
+            ngModel
+            #color
+            name="color" >
+          </mat-form-field>
+        </div>
+        <div class="row">
+
+          <mat-form-field appearance="outline" >
+            <mat-label for="raza">Raza: </mat-label>
+            <input matInput
+            required
+            type="text"
+            ngModel
+            #raza
+            name="raza">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha de Nacimiento: </mat-label>
+            <input matInput [matDatepicker]="nacimiento" ngModel
+            name="nacimiento">
+            <mat-datepicker-toggle matSuffix [for]="nacimiento"></mat-datepicker-toggle>
+            <mat-datepicker #nacimiento></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha de registro</mat-label>
+            <input matInput  ngModel
+            name="registroanimal" [matDatepicker]="registroanimal">
+            <mat-datepicker-toggle matSuffix [for]="registroanimal"></mat-datepicker-toggle>
+            <mat-datepicker #registroanimal ></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+
+        <div class="row">
+
+
+
+
+          <mat-checkbox ngModel
+          name="esterilizado" #esterilizado class="checkbox">Esterilizado</mat-checkbox>
+          <div class="foto">
+            <p>Foto: </p>
+            <input
+            required
+            type="file"
+            ngModel
+            #foto
+            name="foto"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="vac">
+        <mat-form-field appearance="outline" >
+          <mat-label for="dist">Vacunas que Posee: </mat-label>
+          <textarea matInput required name="vacc" type="text" cols="30" rows="50" ngModel
+          #vacc
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button type="submit" mat-raised-button>Registrar</button>
+    </mat-dialog-actions>
+  </form>
+
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <h2 id="header"> Lista de Fichas</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let ficha of fichas ; index as i;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{ficha.name}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>{{ficha.state}}</p>
+          <span class="spacer"></span>
+          <p class="last">{{ficha.registryDate | date}}</p>
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div class="container2">
+        <div>
+
+          <p><b>Datos de la Ficha:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Numero de Ficha: </b>{{i+1}}.</p>
+              <p><b>Tipo de Consulta: </b>{{ficha.typeConsult}}.</p>
+              <p><b>Veterinario Responsable: </b>{{ficha.vet}}.</p>
+              <p><b>Estado: </b>{{ficha.state}}.</p>
+              <p><b>Atencion en Albergue: </b>{{ficha.atention}}.</p>
+              <p><b>Fecha de Registro: </b>{{ficha.registryDate | date}}.</p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div>
+
+          <p><b>Informacion del Animal:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Nombre: </b>{{ficha.name}}.</p>
+              <p><b>Especie: </b>{{ficha.species}}.</p>
+              <p><b>Sexo: </b>{{ficha.sex}}.</p>
+              <p><b>Color: </b>{{ficha.color}}.</p>
+              <p><b>Fecha de Nac: </b>{{ficha.birthDate | date}}.</p>
+              <p><b>Raza: </b>{{ficha.breed}}.</p>
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <div class="selectors">
+          <button mat-flat-button  >Realizar Atencion Medica</button>
+          <button mat-flat-button  >Editar Ficha Medica</button>
+        </div>
+      </div>
+      <hr>
+
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>
