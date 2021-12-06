@@ -1,0 +1,53 @@
+.main{
+  max-width: 600px;
+  }
+.column {
+  float: left;
+  padding-left:50px;
+  padding-right:50px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  height: max-content;
+
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.fieldType{
+  width: 50%;
+}
+
+.entireField{
+width: 100%;
+}
+
+
+.textAreaType{
+resize : none;
+}
+
+h1{
+text-align: center;
+padding-top: 25px;
+font-size: 30px;
+font-family: 'Inter';
+}
+
+
+.mat-dialog-actions {
+justify-content: center;
+}
+
+button{
+background-color: #137F41;
+padding: 15px;
+color: white ;
+font-family: 'Inter';
+font-size: large;
+margin: 1%;
+}

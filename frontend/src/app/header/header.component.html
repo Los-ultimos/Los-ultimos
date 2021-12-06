@@ -1,0 +1,35 @@
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="true" (backdropClick)="toggleButton()">
+  <mat-drawer #drawer class="example-sidenav" mode="over" (keydown.escape)="toggleButton()">
+    <div class="top">
+      <img class="icon-big" src="assets/icon-big.jpg" alt="icon-big">
+      <span class="example-spacer"></span>
+      <button *ngIf="!showing" type="button" (click)="drawer.close(); showing=true" mat-icon-button class="example-icon2" aria-label="Example icon-button with menu icon" >
+        <mat-icon >menu</mat-icon>
+      </button>
+    </div>
+    <div class="links">
+      <a mat-button>Animales</a>
+      <a mat-button>Servicios Veterinarios</a>
+      <a mat-button>Reportes</a>
+      <a mat-button>Crear Usuario</a>
+    </div>
+    <span class="example-spacer"></span>
+
+    <a class="log-out" mat-button>Cerrar Sesion</a>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <button *ngIf="showing" type="button" (click)="drawer.toggle(); showing=false" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+       <mat-icon >menu</mat-icon>
+     </button>
+     <span class="example-spacer"></span>
+     <img *ngIf="showing" class="icon" src="assets/icon.jpg" alt="icon">
+    </mat-toolbar>
+    <app-main-hub></app-main-hub>
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+
+

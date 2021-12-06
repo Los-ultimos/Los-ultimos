@@ -1,0 +1,246 @@
+<div class="main">
+<form  (ngSubmit)="addFicha(postForm)" #postForm="ngForm">
+
+<h1 mat-dialog-title>Registrar Ficha Médica</h1>
+<hr>
+<div mat-dialog-content >
+  <div class="container">
+    <div >
+        <div >
+            <h3>Datos de la ficha</h3>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Tipo de consulta</mat-label>
+                <mat-select name="tipoconsulta" matInput
+                required
+                type="text"
+                ngModel
+                #tipoconsulta>
+                    <mat-option value="Consulta">Consulta </mat-option>
+                    <mat-option value="Re consulta">Re consulta</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+              <mat-label>Fecha de registro de ficha</mat-label>
+              <input matInput [matDatepicker]="registroFicha" name="registroFicha" ngModel>
+              <mat-datepicker-toggle matSuffix [for]="registroFicha"></mat-datepicker-toggle>
+              <mat-datepicker #registroFicha></mat-datepicker>
+          </mat-form-field>
+            <mat-form-field class="entireField" appearance="outline">
+              <mat-label>Veterinario responsable</mat-label>
+              <input matInput name="veterinario"
+                required
+                type="text"
+                ngModel
+                #veterinario>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Atención en el albergue</mat-label>
+                <mat-select name="atencionalbergue"  matInput
+                required
+                type="text"
+                ngModel
+                #atencionalbergue>
+                    <mat-option value="1ra vez">1ra vez</mat-option>
+                    <mat-option value="A veces">A veces</mat-option>
+                    <mat-option value="Con frecuencia">Con frecuencia</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <div >
+            <h3>Datos del animal</h3>
+            <mat-form-field appearance="outline" >
+              <mat-label for="nombreanimal">Nombre del Animal: </mat-label>
+              <input
+              matInput
+              required
+              name="nombreanimal"
+              type="text"
+              [(ngModel)]="data.name"
+              #nombreanimal
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label for="especie">Especie:</mat-label>
+              <mat-select name="especie"
+              matInput
+              required
+              type="text"
+              [(ngModel)]="data.species"
+              #especie>
+                <mat-option *ngFor="let spec of species" [value]="spec.val" >
+                  {{spec.val}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Sexo</mat-label>
+              <mat-select name="sexo"
+              matInput
+              required
+              type="text"
+              [(ngModel)]="data.sex"
+              #sexo>
+                <mat-option value="macho">Macho</mat-option>
+                <mat-option value="hembra">Hembra</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" >
+              <mat-label for="color">Color: </mat-label>
+              <input
+              matInput
+              required
+              type="text"
+              [(ngModel)]="data.color"
+              #color
+              name="color" >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" >
+              <mat-label for="raza">Raza: </mat-label>
+              <input matInput
+              required
+              type="text"
+              [(ngModel)]="data.breed"
+              #raza
+              name="raza">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Fecha de Nacimiento: </mat-label>
+              <input matInput [matDatepicker]="nacimiento"
+              [(ngModel)]="data.birthDate"
+              name="nacimiento">
+              <mat-datepicker-toggle matSuffix [for]="nacimiento"></mat-datepicker-toggle>
+              <mat-datepicker #nacimiento></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="inputField" appearance="outline">
+              <mat-label>Edad</mat-label>
+              <input matInput type="number" required
+              [(ngModel)]="data.age" name="age"
+              >
+          </mat-form-field>
+          <mat-checkbox ngModel
+          name="esterilizado" #esterilizado class="checkbox"
+          [(ngModel)]="data.sterilized"
+          >Esterilizado</mat-checkbox>
+          <!-- <div class="foto">
+            <p>Foto: </p>
+            <input
+            required
+            type="file"
+            [(ngModel)]="data.picture"
+
+            #foto
+            name="foto"
+            >
+          </div> -->
+
+            <p>Vacunas:</p>
+            <mat-form-field appearance="outline" >
+              <mat-label for="dist">Vacunas que Posee: </mat-label>
+              <textarea matInput required name="vacc" type="text" cols="30" rows="50"
+              [(ngModel)]="data.vaccines"
+              #vacc
+              ></textarea>
+            </mat-form-field>
+
+
+            <h3>Datos del propietario</h3>
+            <mat-form-field appearance="outline">
+              <mat-label for="nombredueno">Nombre y Apellido: </mat-label>
+              <input
+              matInput
+              required
+              name="nombredueno"
+              type="text"
+              [(ngModel)]="data.owner.name"
+              #nombredueno
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label for="ci">Cedula de Identidad: </mat-label>
+              <input
+              matInput
+              required
+              name="ci"
+              type="text"
+              [(ngModel)]="data.owner.ci"
+              #ci
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label for="cell">Celular: </mat-label>
+              <input
+              matInput
+              required
+              name="cell"
+              [(ngModel)]="data.owner.cellphone"
+              #cell
+              type="tel">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label for="mail">Correo Electronico: </mat-label>
+              <input
+              matInput
+              required
+              name="email"
+              type="email"
+              [(ngModel)]="data.owner.email"
+              #email>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label for="dist">Distrito: </mat-label>
+              <input
+              matInput
+              required
+              name="dist"
+              type="text"
+              [(ngModel)]="data.owner.district"
+              #dist>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label for="zona">Zona: </mat-label>
+              <input
+              matInput
+              required
+              name="zona"
+              type="text"
+              [(ngModel)]="data.owner.region"
+              #zona >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label for="barrio">Barrio: </mat-label>
+              <input
+              matInput
+              required
+              name="barrio"
+              type="text"
+              [(ngModel)]="data.owner.neighborhood"
+              #barrio >
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label for="direc">Direccion: </mat-label>
+              <input
+              matInput
+              required
+              name="direc"
+              type="text"
+              [(ngModel)]="data.owner.neighborhood"
+              #direc>
+            </mat-form-field>
+
+        </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button type="submit" mat-dialog-close>Registrar ficha médica</button>
+</div>
+</form>
+</div>
+
