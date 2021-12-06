@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormanimalComponent } from './formanimal/formanimal.component';
@@ -9,12 +10,17 @@ import { FormemailComponent } from './formemail/formemail.component';
 import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
 import { FormreporteComponent } from './formreporte/formreporte.component';
 
+import { VERSION } from '@angular/core';
+
+
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.css' ]
 })
+
 export class AppComponent {
+   name = 'Angular ' + VERSION.major;
   title = 'cemzoocruz';
   sideBarOpen=false;
   sideBarToggler(){
@@ -28,4 +34,4 @@ export class AppComponent {
   }
 
 
-}
+
