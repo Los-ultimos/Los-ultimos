@@ -1,29 +1,10 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { FormanimalComponent } from './formanimal/formanimal.component';
-import { FormanimalduenoComponent } from './formanimaldueno/formanimaldueno.component';
-import { FormcarnetComponent } from './formcarnet/formcarnet.component';
-import { FormdecesosComponent } from './formdecesos/formdecesos.component';
-import { FormemailComponent } from './formemail/formemail.component';
-import { FormfichasmedicasComponent } from './formfichasmedicas/formfichasmedicas.component';
+import { Component, VERSION } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.css' ]
 })
-export class AppComponent {
-  title = 'cemzoocruz';
-  sideBarOpen=false;
-  sideBarToggler(){
-    this.sideBarOpen=!this.sideBarOpen
-  }
-
-  constructor(public dialog: MatDialog){}
-
-  openDialog():void{
-    const dialogRef=this.dialog.open(FormemailComponent, {width:'100vh'})
-  }
-
-
+export class AppComponent  {
+  name = 'Angular ' + VERSION.major;
 }
