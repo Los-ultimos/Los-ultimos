@@ -1,0 +1,46 @@
+<div class="container">
+  <h2 id="header"> Registro de Atencion Clinica</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let atencion of atenciones ; index as i;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{atencion.vet}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>{{atencion.fechaAtencion | date}}</p>
+
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div class="container2">
+        <div>
+
+          <p><b>Datos de la atencion:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Sintomas: </b>{{atencion.symp}}.</p>
+              <p><b>Pronostico: </b>{{atencion.prono}}.</p>
+              <p><b>Tratamiento: </b>{{atencion.treat}}.</p>
+              <p><b>Estado: </b>{{atencion.state}}.</p>
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class="selectors">
+          <button mat-flat-button  >Cambiar estado de Atencion Medica</button>
+          <button mat-flat-button  *ngIf="mode!=='Basic'" >Editar datos de Atencion Medica</button>
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

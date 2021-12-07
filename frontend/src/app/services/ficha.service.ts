@@ -21,6 +21,18 @@ export class FichaService {
     this.fetchFichas.next([...this.fichas])
     }
 
+    updateFicha(ficha:Ficha,id:string){
+      this.http
+      .put("http://localhost:3000/api/fichas/" + id, ficha)
+      .subscribe(response => {
+        const updatedFichas = [...this.fichas];
+        const oldAnimalIndex = updatedFichas.findIndex(f => f.id === ficha.id);
+        updatedFichas[oldAnimalIndex] = ficha;
+        this.fichas = updatedFichas;
+        this.fetchFichas.next([...this.fichas]);
+      });
+    }
+
 
   getFichas(){
     this.http.get<{message:string, fichas: []}>("http://localhost:3000/api/fichas")
@@ -29,7 +41,7 @@ export class FichaService {
         console.log(responseData)
         return responseData.fichas.map(
           (fichasResp:{
-            registerCode:string,
+            _id:string,
             number:number,
             typeConsult:string,
             vet:string,
@@ -58,7 +70,7 @@ export class FichaService {
 
             }) =>{
             return {
-              id:fichasResp.registerCode,
+              id:fichasResp._id,
               number:fichasResp.number+1,
               typeConsult:fichasResp.typeConsult,
               vet:fichasResp.vet,

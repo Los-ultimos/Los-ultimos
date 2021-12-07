@@ -19,7 +19,7 @@ export class AnimalService {
           console.log(responseData)
           return responseData.animal.map(
             (animalResp:{
-              registerCode:string;
+              _id:string;
               name:string;
               species:string;
               sex:string;
@@ -46,7 +46,7 @@ export class AnimalService {
                 systemRegistry:Date;
               }}) =>{
               return {
-                id:animalResp.registerCode,
+                id:animalResp._id,
                 name:animalResp.name,
                 species:animalResp.species,
                 sex:animalResp.sex,
@@ -87,6 +87,18 @@ export class AnimalService {
 
   }
 
+  updateAnimal(animal:Animal, id: string,) {
+    this.http
+      .put("http://localhost:3000/api/animal/" + id, animal)
+      .subscribe(response => {
+        const updatedAnimals = [...this.animals];
+        const oldAnimalIndex = updatedAnimals.findIndex(a => a.id === animal.id);
+        updatedAnimals[oldAnimalIndex] = animal;
+        this.animals = updatedAnimals;
+        this.fetchAnimals.next([...this.animals]);
+      });
+  }
+
   getAnimalListener(){
     return this.fetchAnimals.asObservable()
   }
@@ -97,6 +109,16 @@ export class AnimalService {
       .subscribe(res=>{
         console.log(res)
       })
+  }
+
+  deleteAnimal(animalId: string) {
+    this.http
+      .delete("http://localhost:3000/api/animal/" + animalId)
+      .subscribe(() => {
+        const updatedAnimals = this.animals.filter(animal => animal.id !== animalId);
+        this.animals = updatedAnimals;
+        this.fetchAnimals.next([...this.animals]);
+      });
   }
 
 

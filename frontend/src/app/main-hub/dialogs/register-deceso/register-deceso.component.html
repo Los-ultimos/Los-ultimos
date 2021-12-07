@@ -1,4 +1,6 @@
 <div class="main">
+  <form  (ngSubmit)="addDeceso(postForm)" #postForm="ngForm">
+
   <h1 mat-dialog-title>Registrar Deceso</h1>
   <hr>
   <div mat-dialog-content>
@@ -21,9 +23,9 @@
                   type="text"
                   ngModel
                   #sector>
-                      <mat-option value="option1">Clínica</mat-option>
-                      <mat-option value="option2">Medicina interna</mat-option>
-                      <mat-option value="option3">Quirófano</mat-option>
+                      <mat-option value="Clinica">Clínica</mat-option>
+                      <mat-option value="Medicina Interna">Medicina interna</mat-option>
+                      <mat-option value="Quirofano">Quirófano</mat-option>
                   </mat-select>
               </mat-form-field>
               <mat-form-field class="fieldType" appearance="outline">
@@ -230,8 +232,9 @@
       </div>
   </div>
   <div mat-dialog-actions>
-      <button mat-button cdkFocusInitial>Registrar deceso</button>
+      <button mat-button type="submit" mat-dialog-close>Registrar deceso</button>
   </div>
+</form>
 
 </div>
 

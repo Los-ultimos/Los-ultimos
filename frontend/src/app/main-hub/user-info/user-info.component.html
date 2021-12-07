@@ -12,11 +12,13 @@
       </ng-template>
     </mat-tab>
     <mat-tab label="Atencion Clinica">
-      ATENCION CLINICA
-    </mat-tab>
+      <ng-template matTabContent>
+        <app-user-atencion></app-user-atencion>
+      </ng-template>    </mat-tab>
     <mat-tab label="Decesos">
-      DECESOS
-    </mat-tab>
+      <ng-template matTabContent>
+        <app-user-decesos></app-user-decesos>
+      </ng-template>    </mat-tab>
 
   </mat-tab-group>
 

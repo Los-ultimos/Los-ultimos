@@ -28,6 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterFichaComponent } from './main-hub/dialogs/register-ficha/register-ficha.component';
 import { UserFichasComponent } from './main-hub/user-info/user-fichas/user-fichas.component';
 import { RegisterDecesoComponent } from './main-hub/dialogs/register-deceso/register-deceso.component';
+import { UserDecesosComponent } from './main-hub/user-info/user-decesos/user-decesos.component';
+import { RegisterAtencionComponent } from './main-hub/dialogs/register-atencion/register-atencion.component';
+import { LoginComponent } from './login/login.component';
+import { UserAtencionComponent } from './main-hub/user-info/user-atencion/user-atencion.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { RegisterDecesoComponent } from './main-hub/dialogs/register-deceso/regi
     RegisterAnimalComponent,
     RegisterFichaComponent,
     UserFichasComponent,
-    RegisterDecesoComponent
+    RegisterDecesoComponent,
+    UserDecesosComponent,
+    RegisterAtencionComponent,
+    LoginComponent,
+    UserAtencionComponent
   ],
   imports: [
     BrowserModule,

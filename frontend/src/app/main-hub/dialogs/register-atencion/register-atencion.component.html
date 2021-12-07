@@ -1,0 +1,230 @@
+<div class="main">
+  <form  (ngSubmit)="addAtencion(postForm)" #postForm="ngForm">
+
+
+<h1 mat-dialog-title>Registrar atención médica</h1>
+<hr>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="column">
+            <p>Síntomas</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <textarea matInput
+                required
+                            name="symp"
+                            ngModel
+                            #symp
+                rows="2" class="textAreaType"></textarea>
+            </mat-form-field>
+            <p>Signos clínicos</p>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Frecuencia cardíaca (BPM)</mat-label>
+                            <input  matInput
+                            required
+                            name="freqc"
+                            ngModel
+                            #freqc type="number" placeholder="Ex. 12" min="10" >
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Temperatura (°C)</mat-label>
+                            <input  matInput
+                            required
+                            name="temp"
+                            ngModel
+                            #temp type="number" placeholder="Ex. 12" min="10">
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Llenado capilar (seg)</mat-label>
+                            <input  matInput
+                            required
+                            name="capilar"
+                            ngModel
+                            #capilar type="number" placeholder="Ex. 12" min="1">
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Mucosas</mat-label>
+                            <mat-select
+                            matInput
+                            required
+                            name="mucosas"
+                            type="text"
+                            ngModel
+                            #mucosas>
+                                <mat-option value="Rosada">Rosada</mat-option>
+                                <mat-option value="Pálida">Pálida</mat-option>
+                                <mat-option value="Congestionada">Congestionada</mat-option>
+                                <mat-option value="Ictérica">Ictérica</mat-option>
+                                <mat-option value="Cianótica">Cianótica</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Hidratación</mat-label>
+                            <mat-select
+                            matInput
+                            required
+                            name="hidra"
+                            type="text"
+                            ngModel
+                            #hidra>
+                                <mat-option value="Normal">Normal</mat-option>
+                                <mat-option value="Deshidratación moderada">Deshidratación moderada</mat-option>
+                                <mat-option value="Deshidratación leve">Deshidratación leve</mat-option>
+                                <mat-option value="Deshidratación grave">Deshidratación grave</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Frecuencia respiratoria (RPM)</mat-label>
+                            <input  matInput
+                            required
+                            name="resp"
+                            ngModel
+                            #resp type="number" placeholder="Ex. 12" min="10">
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Pulso (BPM)</mat-label>
+                            <input  matInput
+                            required
+                            name="pulse"
+                            ngModel
+                            #pulse type="number" placeholder="Ex. 12" min="10">
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Estado general</mat-label>
+                            <mat-select
+                            matInput
+                            required
+                            name="state"
+                            type="text"
+                            ngModel
+                            #state>
+                                <mat-option value="Bueno">Bueno</mat-option>
+                                <mat-option value="Malo">Malo</mat-option>
+                                <mat-option value="Regular">Regular</mat-option>
+                                <mat-option value="Sobrepeso">Sobrepeso</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="fieldType" appearance="outline">
+                            <mat-label>Apetito</mat-label>
+                            <mat-select
+                            matInput
+                            required
+                            name="appetite"
+                            type="text"
+                            ngModel
+                            #appetite>
+                                <mat-option value="Normal">Normal</mat-option>
+                                <mat-option value="Disminuido">Disminuido</mat-option>
+                                <mat-option value="Anorexico">Anorexico</mat-option>
+                                <mat-option value="Caquexico">Caquexico</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+            <p>Pronostico</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input  matInput
+                required
+                name="prono"
+                type="text"
+                ngModel
+                #prono>
+            </mat-form-field>
+
+
+        </div>
+        <div class="column">
+            <p>Tratamiento</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input  matInput
+                required
+                name="treat"
+                type="text"
+                ngModel
+                #treat>
+            </mat-form-field>
+            <p>Laboratorios solicitados</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <textarea  matInput
+                required
+                name="labs"
+                type="text"
+                ngModel
+                #labs rows="2" class="textAreaType"></textarea>
+            </mat-form-field>
+            <p>Atención</p>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha y hora de atención</mat-label>
+                <input  matInput
+                required
+                name="fechaAtencion"
+                ngModel
+                #fechaAtencion type="datetime-local" placeholder="start date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Estado de atención</mat-label>
+                <mat-select  matInput
+                required
+                name="estadoat"
+                type="text"
+                ngModel
+                #estadoat>
+                    <mat-option value="Atendido">Atendido</mat-option>
+                    <mat-option value="Postergado">Postergado</mat-option>
+                    <mat-option value="En espera de resultado">En espera de resultado</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>
+            <p>Veterinario responsable</p>
+            <mat-form-field class="entireField" appearance="outline">
+                <input  matInput
+                required
+                name="vet"
+                type="text"
+                ngModel
+                #vet>
+            </mat-form-field>
+            <p>
+
+            <p>Fechas para la atención</p>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de registro de atención</mat-label>
+                <input  matInput
+                required
+                name="registro"
+                ngModel
+                #registro [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de entrada</mat-label>
+                <input  matInput
+                required
+                name="entrada"
+                ngModel
+                #entrada [matDatepicker]="picker2">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="fieldType" appearance="outline">
+                <mat-label>Fecha de salida</mat-label>
+                <input  matInput
+                required
+                name="salida"
+                type="text"
+                ngModel
+                #salida
+                [matDatepicker]="picker3">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button type="submit" mat-dialog-close>Registrar atención clínica</button>
+</div>
+</form>
+</div>

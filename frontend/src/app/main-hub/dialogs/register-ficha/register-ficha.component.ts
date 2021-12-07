@@ -28,10 +28,14 @@ export class RegisterFichaComponent implements OnInit {
     {val: 'Hembra'}
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:Animal, private fichaService:FichaService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any, private fichaService:FichaService) { }
 
   ngOnInit(): void {
+
   }
+
+
+  f = this.data instanceof Object && "owner" in this.data;
 
 
 
@@ -65,8 +69,13 @@ export class RegisterFichaComponent implements OnInit {
     }
 
     console.log(ficha)
-    await this.fichaService.saveFicha(ficha)
-    await this.fichaService.getFichas()
+    if(this.f){
+      await this.fichaService.saveFicha(ficha)
+
+    }else{
+      await this.fichaService.updateFicha(ficha, this.data.id)
+
+    }
 
   }
 

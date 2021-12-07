@@ -1,11 +1,9 @@
 .main{
-  max-width: 600px;
+  max-width: 650px;
   }
+
 .column {
-  padding-left:50px;
-  padding-right:50px;
-  padding-bottom: 50px;
-  padding-top: 20px;
+  padding:50px;
   height: max-content;
 
 }
@@ -18,7 +16,7 @@
 
 
 .fieldType{
-  width: 50%;
+  width: 40%;
 }
 
 .entireField{
@@ -50,3 +48,9 @@ font-family: 'Inter';
 font-size: large;
 margin: 1%;
 }
+
+
+
+  mat-form-field{
+    margin: 0 1em;
+  }

@@ -1,0 +1,22 @@
+main{
+  width: fit-content;
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-big{
+  width: 250px;
+  height: auto;
+  margin-bottom: 3em;
+}
+
+mat-form-field{
+  margin: 0.5em 0;
+}
+
+a {
+  padding: 0.75em 0;
+  background-color: #137f41;
+  color: white;
+}

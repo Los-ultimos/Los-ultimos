@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Animal } from 'src/app/models/animal.model';
 import { AnimalService } from 'src/app/services/animal.service';
 
@@ -32,9 +33,10 @@ export class RegisterAnimalComponent implements OnInit {
     {val: 'Hembra'}
   ];
 
-  constructor(private animalService:AnimalService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:Animal, private animalService:AnimalService) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   getAge(dateString: string) {
@@ -51,6 +53,7 @@ export class RegisterAnimalComponent implements OnInit {
 
 
   addAnimal(form:NgForm){
+
 
 
     let animal:Animal= {
@@ -79,7 +82,15 @@ export class RegisterAnimalComponent implements OnInit {
       }
     }
     console.log(animal)
-    this.animalService.saveAnimal(animal)
+    if(this.data===null){
+      this.animalService.saveAnimal(animal)
+    }else{
+      if(typeof this.data.id === 'string'){
+        this.animalService.updateAnimal(animal, this.data.id)
+
+      }
+
+    }
 
   }
 }

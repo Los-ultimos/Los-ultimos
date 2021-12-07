@@ -1,7 +1,7 @@
 import { Owner } from "./owner.model";
 
 export interface Animal{
-
+  id?:string,
   name:string,
   species:string,
   sex:string,
