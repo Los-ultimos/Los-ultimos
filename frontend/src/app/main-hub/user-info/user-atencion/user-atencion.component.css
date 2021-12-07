@@ -54,10 +54,9 @@ img{
 .otrasOpciones{
   margin: 1em auto;
   display: flex;
-  flex-grow: 1;
   flex-wrap: wrap;
 }
 .buttons{
-  margin: 2em 1em 2em 4em;
+  margin: 2em 2em;
 }
 

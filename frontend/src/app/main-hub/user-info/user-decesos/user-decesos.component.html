@@ -1,0 +1,68 @@
+<div class="container">
+  <h2 id="header"> Registro de Decesos</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let deceso of decesos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{deceso.name}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <p class="last">{{deceso.registroDeceso | date}}</p>
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div class="container2">
+        <div>
+
+          <p><b>Informacion del Animal:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Nombre: </b>{{deceso.name}}.</p>
+              <p><b>Especie: </b>{{deceso.species}}.</p>
+              <p><b>Sexo: </b>{{deceso.sex}}.</p>
+              <p><b>Color: </b>{{deceso.color}}.</p>
+              <p><b>Fecha de Nac: </b>{{deceso.birthDate | date}}.</p>
+              <p><b>Raza: </b>{{deceso.breed}}.</p>
+            </div>
+          </div>
+
+
+        </div>
+        <div>
+
+          <p><b>Datos del Deceso:</b></p>
+          <div class="animalinfo">
+            <div>
+              <p><b>Lugar de Estancia: </b>{{deceso.estancia}}.</p>
+              <p><b>Sector de Deceso: </b>{{deceso.sector}}.</p>
+              <p><b>Responsables: </b>{{deceso.responsable}}.</p>
+              <p><b>Descripcion: </b>{{deceso.desc}}.</p>
+              <p><b>Antecedentes: </b>{{deceso.antecedentes}}.</p>
+              <p><b>Acciones Realizadas: </b>{{deceso.acciones}}.</p>
+              <p><b>Informe Epidemiologico: </b>{{deceso.informe}}.</p>
+              <p><b>Causa: </b>{{deceso.causa}}.</p>
+              <p><b>Descripcion Causa o Enfermedad: </b>{{deceso.enfermedad}}.</p>
+              <p><b>Factores influyentes: </b>{{deceso.factores}}.</p>
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class="selectors">
+          <button mat-flat-button *ngIf="mode!=='Basic'" >Editar Reporte</button>
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

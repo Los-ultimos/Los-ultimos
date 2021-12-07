@@ -51,11 +51,10 @@
 
 
         <div class="selectors">
-          <button mat-flat-button  >Realizar Atencion Medica</button>
-          <button mat-flat-button  >Editar Ficha Medica</button>
+          <button mat-flat-button (click)="openAtencionDialog()" >Realizar Atencion Medica</button>
+          <button *ngIf="mode!=='Basic'" mat-flat-button  (click)="openEditarDialog(ficha)">Editar Ficha Medica</button>
         </div>
       </div>
-      <hr>
 
 
     </mat-expansion-panel>

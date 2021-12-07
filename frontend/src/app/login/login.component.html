@@ -1,0 +1,43 @@
+<main>
+  <img class="icon-big" src="assets/white.jpg" alt="icon-big">
+  <h3>Ingresa:</h3>
+  <mat-form-field appearance="outline">
+    <mat-label for="user">Usuario: </mat-label>
+    <input
+    matInput
+    name="user"
+    type="text"
+    ngModel
+    #user
+    >
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label for="password">Contraseña: </mat-label>
+    <input
+    matInput
+    name="password"
+    type="password"
+    ngModel
+    #password
+    >
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Acceso</mat-label>
+  <mat-select name="Access"
+  matInput
+  required
+  type="text"
+  ngModel
+  #access>
+    <mat-option value="Admin">Administrador</mat-option>
+    <mat-option value="Advanced">Nivel Avanzado</mat-option>
+    <mat-option value="Basic">Nivel Basico</mat-option>
+
+  </mat-select>
+</mat-form-field>
+<a mat-button  [routerLink]="['/main-hub', access.value]">Iniciar Sesion</a>
+
+
+
+</main>

@@ -1,0 +1,56 @@
+.main{
+  max-width: 650px;
+  }
+
+.column {
+  padding:50px;
+  height: max-content;
+
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.fieldType{
+  width: 40%;
+}
+
+.entireField{
+width: 100%;
+}
+
+
+.textAreaType{
+resize : none;
+}
+
+h1{
+text-align: center;
+padding-top: 25px;
+font-size: 30px;
+font-family: 'Inter';
+}
+
+
+.mat-dialog-actions {
+justify-content: center;
+}
+
+button{
+background-color: #137F41;
+padding: 15px;
+color: white ;
+font-family: 'Inter';
+font-size: large;
+margin: 1%;
+}
+
+
+
+  mat-form-field{
+    margin: 0 1em;
+  }

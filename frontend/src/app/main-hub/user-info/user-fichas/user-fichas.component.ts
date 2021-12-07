@@ -1,8 +1,11 @@
 import { Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Ficha } from 'src/app/models/ficha.model';
 import { FichaService } from 'src/app/services/ficha.service';
+import { RegisterAtencionComponent } from '../../dialogs/register-atencion/register-atencion.component';
+import { RegisterFichaComponent } from '../../dialogs/register-ficha/register-ficha.component';
 
 @Component({
   selector: 'app-user-fichas',
@@ -15,7 +18,9 @@ export class UserFichasComponent implements OnInit, OnDestroy{
 
   fichas:Ficha[]=[];
 
-  constructor(private fichaService:FichaService, public dialog: MatDialog) { }
+  mode:any;
+
+  constructor(private fichaService:FichaService, public dialog: MatDialog, public route: ActivatedRoute) { }
 
 
 
@@ -24,6 +29,11 @@ export class UserFichasComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (typeof paramMap.get("mode") ==='string') {
+        this.mode = paramMap.get("mode");
+      }
+  });
     this.fichaService.getFichas()
     this.fichasSub = this.fichaService.getFichasListener()
     .subscribe((fichas:Ficha[])=>{
@@ -31,11 +41,21 @@ export class UserFichasComponent implements OnInit, OnDestroy{
     })
   }
 
-  openFichaDialog(Ficha:Ficha) {
-    // let dialogRef = this.dialog.open(RegisterFichaComponent, {
-    //   height: '90%',
-    //   data: Ficha
-    // });
+  openAtencionDialog() {
+    let dialogRef = this.dialog.open(RegisterAtencionComponent, {
+      height: '90%',
+    });
+
+    // dialogRef.afterClosed().subscribe(res => {
+    //   this.workService.updateData()
+    // })
+  }
+
+  openEditarDialog(ficha:Ficha) {
+    let dialogRef = this.dialog.open(RegisterFichaComponent, {
+      height: '90%',
+      data:ficha
+    });
 
     // dialogRef.afterClosed().subscribe(res => {
     //   this.workService.updateData()

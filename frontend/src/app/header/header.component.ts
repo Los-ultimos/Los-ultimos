@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   showing=true;
+   mode:any;
 
-  constructor() { }
+  constructor(public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.showing=true;
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (typeof paramMap.get("mode") ==='string') {
+        this.mode = paramMap.get("mode");
+      }
+  });
+
   }
 
   toggleButton(){

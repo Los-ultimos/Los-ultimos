@@ -51,20 +51,20 @@
 
         <div class="selectors">
           <button mat-flat-button  (click)="openFichaDialog(animal)">Generar Ficha Medica</button>
-          <button mat-flat-button  >Registrar Deceso</button>
+          <button mat-flat-button  (click)="openDecesosDialog(animal)">Registrar Deceso</button>
         </div>
       </div>
-      <hr>
+      <hr *ngIf="mode!=='Basic'">
 
-      <div class="otrasOpciones">
+      <div class="otrasOpciones" *ngIf="mode!=='Basic'">
         <h4><b>Otras Opciones:</b> </h4>
-        <div >
-          <button mat-flat-button class="buttons" >Editar Animal / Dueño</button>
-          <button mat-flat-button class="buttons" >Registrar Carnet</button>
-          <button mat-flat-button  class="buttons">Enviar Carnet por Correo</button>
-          <button mat-flat-button  class="buttons">Editar Carnet</button>
-          <button mat-flat-button  class="buttons">Imprimir Carnet</button>
-          <button mat-flat-button class="buttons" >Eliminar Animal</button>
+        <div class="bu">
+          <button *ngIf="mode!=='Basic'" mat-flat-button class="buttons" (click)="openDialog(animal)">Editar Animal / Dueño</button>
+          <button *ngIf="mode!=='Basic'" mat-flat-button class="buttons" >Registrar Carnet</button>
+          <!-- <button mat-flat-button  class="buttons">Enviar Carnet por Correo</button> -->
+          <!-- <button mat-flat-button  class="buttons">Editar Carnet</button> -->
+          <!-- <button mat-flat-button  class="buttons">Imprimir Carnet</button> -->
+          <button *ngIf="mode!=='Basic'" mat-flat-button class="buttons" (click)="deleteAnimal(animal)" >Eliminar Animal</button>
         </div>
       </div>
     </mat-expansion-panel>

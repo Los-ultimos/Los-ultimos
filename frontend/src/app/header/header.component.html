@@ -11,11 +11,11 @@
       <a mat-button>Animales</a>
       <a mat-button>Servicios Veterinarios</a>
       <a mat-button>Reportes</a>
-      <a mat-button>Crear Usuario</a>
+      <a mat-button *ngIf="mode==='Admin'">Crear Usuario</a>
     </div>
     <span class="example-spacer"></span>
 
-    <a class="log-out" mat-button>Cerrar Sesion</a>
+    <a class="log-out" mat-button [routerLink]="['']">Cerrar Sesion</a>
 
   </mat-drawer>
   <mat-drawer-content>
