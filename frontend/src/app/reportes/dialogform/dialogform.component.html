@@ -1,0 +1,54 @@
+<div class="main">
+    <form (ngSubmit)="beginSearch(postForm)" #postForm="ngForm">
+      <h2 mat-dialog-title>Generar reporte</h2>
+      <hr>
+      <mat-dialog-content class="mat-typography">
+        <p>Seleccionar fuente</p>
+        <mat-form-field class="inputField" appearance="outline">
+            <mat-label>Fuente</mat-label>
+            <mat-select name="fuente"
+            (selectionChange)="selectFuente($event.value)"
+            matInput
+            required
+            type="text"
+            ngModel
+            #fuente
+            >
+            <mat-option *ngFor="let tipo of tipoReporte" [value]="tipo.val" >
+                {{tipo.val}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <p>Seleccionar criterio</p>
+        <mat-form-field class="inputField" appearance="outline">
+            <mat-label>Criterio</mat-label>
+            <mat-select name="criterio"
+            (selectionChange)="selectCriterio($event.value)"
+            matInput
+            required
+            type="criterio"
+            ngModel
+            #criterio
+            >
+            <mat-option *ngFor="let crit of criterioReporte" [value]="crit.val" >
+                {{crit.val}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Fechas de búsqueda</p> 
+        <mat-form-field class="inputField" appearance="outline">   
+            <mat-date-range-input ngModel 
+            name="rangoEdad" [rangePicker]="rangoEdad">
+            <input matStartDate placeholder="Desde">
+            <input matEndDate placeholder="Hasta (misma fecha para una sola)">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="rangoEdad"></mat-datepicker-toggle>
+            <mat-date-range-picker #rangoEdad></mat-date-range-picker>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button type="submit" mat-raised-button mat-dialog-close>Registrar</button>
+      </mat-dialog-actions>
+  </form>
+</div>
