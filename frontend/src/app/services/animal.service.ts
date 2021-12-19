@@ -103,6 +103,13 @@ export class AnimalService {
     return this.fetchAnimals.asObservable()
   }
 
+  getAnimalsByCriter(criterio:string){
+    if (criterio=="Edades"){
+      const filteredAnimals = this.animals.filter(animal => animal.id !== criterio);
+      
+    }
+    
+  }
 
   saveAnimal(animal:Animal){
       this.http.post("http://localhost:3000/api/animal", animal)
@@ -121,8 +128,7 @@ export class AnimalService {
       });
   }
 
-
-
+  
 
   constructor(private http:HttpClient) { }
 }

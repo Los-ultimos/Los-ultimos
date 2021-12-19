@@ -32,6 +32,14 @@ import { UserDecesosComponent } from './main-hub/user-info/user-decesos/user-dec
 import { RegisterAtencionComponent } from './main-hub/dialogs/register-atencion/register-atencion.component';
 import { LoginComponent } from './login/login.component';
 import { UserAtencionComponent } from './main-hub/user-info/user-atencion/user-atencion.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import {HighchartsChartModule } from 'highcharts-angular';
+import {NgChartsModule} from 'ng2-charts';
+import {MatTableModule} from '@angular/material/table';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {Chart} from 'chart.js';
+import { DialogformComponent } from './reportes/dialogform/dialogform.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +56,9 @@ import { UserAtencionComponent } from './main-hub/user-info/user-atencion/user-a
     UserDecesosComponent,
     RegisterAtencionComponent,
     LoginComponent,
-    UserAtencionComponent
+    UserAtencionComponent,
+    ReportesComponent,
+    DialogformComponent
   ],
   imports: [
     BrowserModule,
@@ -69,9 +79,16 @@ import { UserAtencionComponent } from './main-hub/user-info/user-atencion/user-a
     MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule,
+    NgChartsModule, 
+    MatTableModule,
+    Ng2SearchPipeModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
+
 })
 export class AppModule { }

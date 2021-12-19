@@ -1,0 +1,36 @@
+
+<div>
+    <button mat-flat-button color="primary" id="but" (click)="openDialog()">Generar reporte</button>
+
+</div>
+<div class="container">
+    <h2 id="header"> Animales Registrados</h2>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let animal of animals">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <p>{{animal.name}}</p>
+          </mat-panel-title>
+          <mat-panel-description>
+            <p>{{animal.species}}</p>
+            <span class="spacer"></span>
+            <p class="last">{{animal.age}} años</p>
+  
+          </mat-panel-description>
+  
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+  
+      </mat-accordion>
+  </div>
+
+  <div style="display: block">
+    <canvas baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [type]="barChartType">
+    </canvas>
+  </div>
+
+
