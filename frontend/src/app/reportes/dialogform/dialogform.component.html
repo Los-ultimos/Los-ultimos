@@ -11,8 +11,7 @@
             matInput
             required
             type="text"
-            ngModel
-            #fuente
+            [(ngModel)]=selectedFuente
             >
             <mat-option *ngFor="let tipo of tipoReporte" [value]="tipo.val" >
                 {{tipo.val}}
@@ -28,8 +27,7 @@
             matInput
             required
             type="criterio"
-            ngModel
-            #criterio
+            [(ngModel)]=selectedCriterio
             >
             <mat-option *ngFor="let crit of criterioReporte" [value]="crit.val" >
                 {{crit.val}}
@@ -40,13 +38,24 @@
         <mat-form-field class="inputField" appearance="outline">   
             <mat-date-range-input ngModel 
             name="rangoEdad" [rangePicker]="rangoEdad">
-            <input matStartDate placeholder="Desde">
-            <input matEndDate placeholder="Hasta (misma fecha para una sola)">
+            <input matStartDate placeholder="Desde" #rangoInicio>
+            <input matEndDate placeholder="Hasta (misma fecha para una sola)" #rangoFin (dateChange)="dateRangeChange(rangoInicio, rangoFin)">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="rangoEdad"></mat-datepicker-toggle>
             <mat-date-range-picker #rangoEdad></mat-date-range-picker>
         </mat-form-field>
       </mat-dialog-content>
+
+      <mat-form-field appearance="outline">
+        <mat-label for="ci">Dato a buscar: </mat-label>
+        <input
+        matInput
+        name="dato"
+        type="text"
+        ngModel
+        #dato
+        >
+      </mat-form-field>
       <mat-dialog-actions>
         <button type="submit" mat-raised-button mat-dialog-close>Registrar</button>
       </mat-dialog-actions>
