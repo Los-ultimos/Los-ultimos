@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TooltipComponent } from '@angular/material/tooltip';
+import { Reporte } from 'src/app/models/reporte.model';
 import { AnimalService } from 'src/app/services/animal.service';
+import { ReporteService } from 'src/app/services/reporte.service';
 interface reporteType{
   val:string;
 }
@@ -21,6 +23,9 @@ export class DialogformComponent implements OnInit {
 
   selectedFuente="";
   selectedCriterio="";
+  fechaFin="";
+  fechainicio="";
+  dato="";
   tipoReporte:reporteType[]=[
     {val:"Animales"},
     {val:"Fichas médicas"},
@@ -45,7 +50,6 @@ export class DialogformComponent implements OnInit {
   atencionReporte:reporteData[]=[
     {val:"Estado"},
     {val:"Estado general"},
-    {val:"Edades"},
     {val:"Mucosas"},
     {val:"Apetito"},
     {val:"Hidratación"},
@@ -64,12 +68,11 @@ export class DialogformComponent implements OnInit {
     {val:"Sector"},
     {val:"Enfermedad"},
     {val:"Factores"},
-    {val:"Edades"},
     {val:"Todos"}
   ]
   
 
-  constructor(private animalService:AnimalService) { }
+  constructor(private animalService:AnimalService, private reporteService:ReporteService) { }
 
 
   ngOnInit(): void {
@@ -97,11 +100,17 @@ export class DialogformComponent implements OnInit {
   }
 
   beginSearch(form:NgForm){
-    let fechas=form.value.rangoEdad.toString()
-    console.log(fechas)
-    if (this.selectedFuente=="Animales"){
-      this.animalService.getAnimals()
-    }
+    let reporte:Reporte={criterio:this.selectedCriterio,fuente:this.selectedFuente,fechaInicio:this.fechainicio,fechaFin:this.fechaFin,dato:form.value.dato}
+    
+    this.reporteService.sendData(reporte);
+    
+  }
+
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {
+    this.fechaFin=dateRangeEnd.value;
+    this.fechainicio=dateRangeStart.value;
+    console.log(dateRangeStart.value);
+    console.log(dateRangeEnd.value);
   }
 
 }
