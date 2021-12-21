@@ -24,7 +24,7 @@ jobs:
     - name: install angular
       run: npm install -g @angular/cli
     - name: Build
-      run: ng build --output-path docs --base-href /Los-ultimos/
+      run: ng build --output-path docs --base-href /Los-ultimos/frontend
     - name: copying files
       run: cp /home/runner/work/Los-ultimos/Los-ultimos/docs/index.html /home/runner/work/Los-ultimos/Los-ultimos/docs/404.html
     - name: Commit report
