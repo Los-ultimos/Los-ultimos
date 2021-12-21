@@ -12,7 +12,12 @@ const Deceso = require('./models/deceso')
 const Atencion = require('./models/atencion')
 
 const keygen = require('./keygen')
-const { async } = require('regenerator-runtime')
+
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+const User = require("./models/user");
+
 
 
 //Mongo
@@ -349,20 +354,103 @@ app.post('/api/deceso', async (req,res)=>{
 
 })
 
+app.post("/api/user/signup", (req, res, next) => {
+    bcrypt.hash(req.body.password, 10).then(hash => {
+      const user = new User({
+        name:req.body.name,
+        email: req.body.email,
+        password: hash,
+        access:req.body.access
+      });
+      user
+        .save()
+        .then(result => {
+          res.status(201).json({
+            message: "User created!",
+            result: result
+          });
+        })
+        .catch(err => {
+            console.log(err)
+
+          res.status(500).json({
+            error: err
+          });
+        });
+    });
+  });
+  
+  app.post("/api/user/login", (req, res, next) => {
+    let fetchedUser;
+    User.findOne({ email: req.body.email })
+      .then(user => {
+        if (!user) {
+          return res.status(401).json({
+            message: "Auth failed"
+          });
+        }
+        fetchedUser = user;
+        return bcrypt.compare(req.body.password, user.password);
+      })
+      .then(result => {
+        if (!result) {
+          return res.status(401).json({
+            message: "Auth failed"
+          });
+        }
+        const token = jwt.sign(
+          { email: fetchedUser.email, userId: fetchedUser._id },
+          "secret_this_should_be_longer",
+          { expiresIn: "1h" }
+        );
+        res.status(200).json({
+          fetchedUser:fetchedUser,
+          token: token,
+          expiresIn: 3600
+        });
+      })
+      .catch(err => {
+        return res.status(401).json({
+          message: "Auth failed"
+        });
+      });
+  });
 
 
-app.delete('/api/films/:id', (req,res)=>{
-//   const id = req.params.id
-//   Movie.findByIdAndDelete(id).then(result=>{
-//     res.status(200).json({message:"message Deleted"})
-//   })
+  app.get('/api/user', async (req,res)=>{
+    await User.find().then(documents=>{
+        res.status(200).json({
+            message:"users fetched succesfully",
+            users:documents
+          })
+    })
+    
 })
 
-app.put('/api/films/:id', (req,res)=>{
-//   Movie.findByIdAndUpdate(req.params.id,req.body).then(result=>{
-//     res.status(200).json({message:"message Deleted"})
-//   })
-})
+app.delete("/api/user/:email", (req, res, next) => {
+    User.deleteOne({ email: req.params.email }).then(result => {
+      console.log(result);
+      res.status(200).json({ message: "User deleted!" });
+    });
+  });
+
+  app.put("/api/user/", (req, res, next) => {
+    bcrypt.hash(req.body.password, 10).then(hash => {
+        const us = {
+            name:req.body.name,
+            password:hash,
+            access:req.body.access,
+            email:req.body.email
+        };
+        console.log(us)
+        User.updateOne({ email: us.email }, us).then(result => {
+          res.status(200).json({ message: "Update successful!" });
+        });
+        
+      });
+    
+  });
+
 
 
 

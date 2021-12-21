@@ -60,7 +60,7 @@ export class ReportesComponent implements OnInit {
     { columnDef: 'appetite', header: 'Apetito',  cell: (element: any) => `${element.appetite}` },
     {columnDef: 'registro',  header: 'Fecha de registro',   cell: (element: any) => `${this.dateRet(element.registro).getDate()+"/"+this.dateRet(element.registro).getMonth()+"/"+this.dateRet(element.registro).getFullYear()}` }
   ];
-  
+
   decColumn=[
     { columnDef: 'name', header: 'Nombre del animal',  cell: (element: any) => `${element.name}` },
     { columnDef: 'ownerName', header: 'Nombre del propietario',  cell: (element: any) => `${element.ownerName}` },
@@ -114,7 +114,7 @@ export class ReportesComponent implements OnInit {
   columns: string[] = [];
 
   displayedColumns:string[]=['entity','counted'];
-  
+
 
   animals:Animal[]=[];
   filter:any[]=[];
@@ -125,7 +125,7 @@ export class ReportesComponent implements OnInit {
 
   selected!:Reporte;
 
-  
+
   results:any[]=[];
   resultDB:any[]=[];
 
@@ -209,7 +209,7 @@ export class ReportesComponent implements OnInit {
   datoMuerteNoviembre=0;
   datoMuerteDiciembre=0;
 
-  
+
   edades=0;
 
 
@@ -266,7 +266,7 @@ export class ReportesComponent implements OnInit {
     },
     plugins: {
       legend: { display: true }
-      
+
     }
   };
 
@@ -342,7 +342,7 @@ export class ReportesComponent implements OnInit {
 
 
 
-  
+
 
   public barChartData: ChartData<'bar'> = {
     labels: [ 'Macho','Hembra' ],
@@ -384,7 +384,7 @@ export class ReportesComponent implements OnInit {
       { data: [ this.datoAtHn,this.datoAtHDm,this.datoAtHDl,this.datoAtHDg] }
     ]
   };
-  
+
 
   public radarChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -402,7 +402,7 @@ export class ReportesComponent implements OnInit {
 
   @ViewChildren(BaseChartDirective)
   charts!: QueryList<BaseChartDirective>;
-  
+
 
 
 
@@ -415,17 +415,19 @@ export class ReportesComponent implements OnInit {
     this.decesosSub.unsubscribe()
     this.fichasSub.unsubscribe()
   }
-  
+
+
 
   ngOnInit(): void {
-    
+
   }
 
   submitRequest(){
-   
+
   }
 
-  
+
+
 
   openDialog(){
     console.log(this.selected)
@@ -437,12 +439,13 @@ export class ReportesComponent implements OnInit {
       this.getDepartments()
     })
   }
-  
-  getDepartments() {
-    
-    
 
-    
+
+  getDepartments() {
+
+
+
+
 
     this.selected=this.reportteService.getData();
     console.log(this.selected)
@@ -452,8 +455,10 @@ export class ReportesComponent implements OnInit {
       dateObjectStart= new Date(this.selected.fechaInicio);
       dateObjectEnd = new Date(this.selected.fechaFin);
       console.log("Filled")
-    } 
-    
+
+    }
+
+
 
     if (this.selected.fuente=="Animales"){
       this.isShown=true;
@@ -532,18 +537,18 @@ export class ReportesComponent implements OnInit {
         } else {
           this.animals=animals;
         }
-        
+
 
         if (this.selected.fechaInicio!="" && this.selected.fechaFin!=""){
-          
-          this.animals=this.animals.filter(animal=>animal.registryDate>=dateObjectStart && animal.registryDate<=dateObjectEnd)  
-        } 
+
+          this.animals=this.animals.filter(animal=>animal.registryDate>=dateObjectStart && animal.registryDate<=dateObjectEnd)
+        }
+
         this.selectColumn=this.animColumn;
         this.columns= this.animColumn.map(c=>c.columnDef)
         this.dataSource=this.animals;
 
-        
-        
+
       })
 
     } else if (this.selected.fuente=="Atenciones clínicas"){
@@ -554,7 +559,7 @@ export class ReportesComponent implements OnInit {
       this.atencionService.getAtencion()
       this.atencionesSub = this.atencionService.getAtencionListener()
       .subscribe((atenciones:Atencion[])=>{
-        
+
         this.datoAtAt=atenciones.filter(atencion=>atencion.estadoat.toLowerCase()==="atendido").length;
         this.datoAtPost=atenciones.filter(atencion=>atencion.estadoat.toLowerCase()==="postergado").length;
         this.datoAtEspera=atenciones.filter(atencion=>atencion.estadoat.toLowerCase()==="en espera de resultado").length;
@@ -632,11 +637,12 @@ export class ReportesComponent implements OnInit {
             this.atenciones=atenciones.filter(atencion=>atencion.hidra.toLowerCase() === this.selected.dato.toLowerCase())
           }else if( this.selected.criterio=="Todos"){
             this.atenciones=atenciones;
-          } 
+
+          }
         } else {
           this.atenciones=atenciones;
         }
-        
+
         if (this.selected.fechaInicio!="" && this.selected.fechaFin!=""){
           this.atenciones=this.atenciones.filter(atencion=> this.dateRet(atencion.registro)>=dateObjectStart && this.dateRet(atencion.registro)<=dateObjectEnd)
         }
@@ -645,7 +651,7 @@ export class ReportesComponent implements OnInit {
         this.selectColumn=this.ateColumn;
         this.columns= this.ateColumn.map(c=>c.columnDef)
         this.dataSource=this.atenciones;
-        
+
       })
     } else if (this.selected.fuente=="Decesos"){
       this.isShown=false;
@@ -679,7 +685,9 @@ export class ReportesComponent implements OnInit {
           this.datoMuerteDiciembre=decesos.filter(deceso=>this.dateRet(deceso.registroDeceso).getMonth()===11).length;
 
 
-        this.lineChartData.datasets[0].data= [ 
+
+        this.lineChartData.datasets[0].data= [
+
           this.datoMuerteEnero,
           this.datoMuerteFebrero,
           this.datoMuerteMarzo,
@@ -696,11 +704,13 @@ export class ReportesComponent implements OnInit {
           this.barChartData.datasets[0].data=[
             this.datoGeneroMCat,this.datoGeneroFCat
           ];
-  
+
+
           this.barChartData.datasets[1].data=[
             this.datoGeneroMCan,this.datoGeneroFCan
           ];
-  
+
+
           this.barChartData.datasets[2].data=[
             this.datoGeneroMEquino,this.datoGeneroFEquino
           ];
@@ -734,18 +744,20 @@ export class ReportesComponent implements OnInit {
             this.decesos=decesos.filter(deceso=>deceso.factores.toLowerCase().includes(pattern2))
           } else if( this.selected.criterio=="Todos"){
             this.decesos=decesos;
-          } 
+
+          }
         } else {
           this.decesos=decesos;
         }
-       
+
+
         if (this.selected.fechaInicio!="" && this.selected.fechaFin!=""){
           this.decesos=this.decesos.filter(deceso=>this.dateRet(deceso.registroDeceso)>=dateObjectStart && this.dateRet(deceso.registroDeceso)<=dateObjectEnd)
         }
         this.selectColumn=this.decColumn;
         this.columns= this.decColumn.map(c=>c.columnDef)
         this.dataSource=this.decesos;
-        
+
       })
     }  else if (this.selected.fuente=="Fichas médicas"){
       this.isShown=false;
@@ -781,11 +793,13 @@ export class ReportesComponent implements OnInit {
           this.barChartData.datasets[0].data=[
             this.datoGeneroMCat,this.datoGeneroFCat
           ];
-  
+
+
           this.barChartData.datasets[1].data=[
             this.datoGeneroMCan,this.datoGeneroFCan
           ];
-  
+
+
           this.barChartData.datasets[2].data=[
             this.datoGeneroMEquino,this.datoGeneroFEquino
           ];
@@ -803,7 +817,9 @@ export class ReportesComponent implements OnInit {
 
 
          this.dataSource2=[
-          {entity: "Fichas Médicas registradas",counted:ficha.length},  
+
+          {entity: "Fichas Médicas registradas",counted:ficha.length},
+
           {entity: "Fichas Médicas atendidas",counted:ficha.filter(ficha=>ficha.state.toLowerCase()!="en espera").length},
           {entity: "Fichas Médicas en espera",counted:ficha.filter(ficha=>ficha.state.toLowerCase()=="en espera").length},
           {entity:"Fichas Médicas con atención frecuente en albergue",counted:this.datoFiAtFH+this.datoFiAtFM},
@@ -828,13 +844,13 @@ export class ReportesComponent implements OnInit {
               this.fichas=ficha.filter(ficha=>ficha.typeConsult.toLowerCase()==this.selected.dato.toLowerCase())
             } else if( this.selected.criterio=="Todos"){
               this.fichas=ficha;
-            } 
+
           } else {
             this.fichas=ficha;
           }
 
           if (this.selected.fechaInicio!="" && this.selected.fechaFin!=""){
-           
+
             this.fichas=this.fichas.filter(ficha=>this.dateRet(ficha.registryDate)>=dateObjectStart && this.dateRet(ficha.registryDate)<=dateObjectEnd)
           }
 
@@ -844,9 +860,7 @@ export class ReportesComponent implements OnInit {
         })
     }
 
-    
-    
-   
+
 
     // else if (this.selected[0]=="Carnets"){
 
@@ -855,7 +869,7 @@ export class ReportesComponent implements OnInit {
 
     //   this.fichaService.getFichas
     //   this.fichasSub = this.fichaService.getFichasListener()
-  
+
     //   .subscribe((ficha:Ficha[])=>{
     //     this.results=ficha;
     //     this.fichas=ficha;
@@ -872,18 +886,19 @@ export class ReportesComponent implements OnInit {
     //   this.deceso=false;
     // }
 
-    
-  }
-  
 
-  
+
+  }
+
+
+
   dateRet(date:Date){
     var d = new Date(date);
     console.log(d + " " + d.getMonth());
-    return d; 
+    return d;
   }
-  
 
-  
+
+
 }
 

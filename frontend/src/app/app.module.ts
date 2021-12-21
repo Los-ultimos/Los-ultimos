@@ -32,14 +32,20 @@ import { UserDecesosComponent } from './main-hub/user-info/user-decesos/user-dec
 import { RegisterAtencionComponent } from './main-hub/dialogs/register-atencion/register-atencion.component';
 import { LoginComponent } from './login/login.component';
 import { UserAtencionComponent } from './main-hub/user-info/user-atencion/user-atencion.component';
+
+import { UserHubComponent } from './user-hub/user-hub.component';
+import { UserRegisterComponent } from './user-hub/dialogs/user-register/user-register.component';
+import { UserListComponent } from './user-hub/user-list/user-list.component';
+import { UserEditComponent } from './user-hub/dialogs/user-edit/user-edit.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { DialogformComponent } from './reportes/dialogform/dialogform.component';
+import {MatTableModule} from '@angular/material/table';
 import {HighchartsChartModule } from 'highcharts-angular';
 import {NgChartsModule} from 'ng2-charts';
-import {MatTableModule} from '@angular/material/table';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {Chart} from 'chart.js';
-import { DialogformComponent } from './reportes/dialogform/dialogform.component';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +63,10 @@ import { DialogformComponent } from './reportes/dialogform/dialogform.component'
     RegisterAtencionComponent,
     LoginComponent,
     UserAtencionComponent,
+    UserHubComponent,
+    UserRegisterComponent,
+    UserListComponent,
+    UserEditComponent,
     ReportesComponent,
     DialogformComponent
   ],
@@ -80,11 +90,11 @@ import { DialogformComponent } from './reportes/dialogform/dialogform.component'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HighchartsChartModule,
-    NgChartsModule, 
     MatTableModule,
+    HighchartsChartModule,
+    NgChartsModule,
     Ng2SearchPipeModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],

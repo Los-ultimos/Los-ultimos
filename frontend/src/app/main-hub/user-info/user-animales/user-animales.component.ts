@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Animal } from 'src/app/models/animal.model';
 import { AnimalService } from 'src/app/services/animal.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { RegisterAnimalComponent } from '../../dialogs/register-animal/register-animal.component';
 import { RegisterDecesoComponent } from '../../dialogs/register-deceso/register-deceso.component';
 import { RegisterFichaComponent } from '../../dialogs/register-ficha/register-ficha.component';
@@ -20,17 +21,18 @@ export class UserAnimalesComponent implements OnInit, OnDestroy{
 
   mode:any
 
-  constructor(private animalService:AnimalService, public dialog: MatDialog, public route: ActivatedRoute) { }
+  constructor(private animalService:AnimalService, public dialog: MatDialog, public route: ActivatedRoute, private authService:AuthService) { }
   ngOnDestroy() {
     this.animalSub.unsubscribe()
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (typeof paramMap.get("mode") ==='string') {
-        this.mode = paramMap.get("mode");
-      }
-  });
+  //   this.route.paramMap.subscribe((paramMap: ParamMap) => {
+  //     if (typeof paramMap.get("mode") ==='string') {
+  //       this.mode = paramMap.get("mode");
+  //     }
+  // });
+  this.mode=this.authService.getUser().access
     this.animalService.getAnimals()
     this.animalSub = this.animalService.getAnimalListener()
     .subscribe((animals:Animal[])=>{

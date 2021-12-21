@@ -7,8 +7,10 @@ import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'main-hub/:mode', component: HeaderComponent },
-  {path: 'reportes', component: ReportesComponent}
+
+  { path: 'main-hub', component: HeaderComponent },
+
+
 ];
 
 @NgModule({

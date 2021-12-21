@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em 4em;
+}
+
+#but {
+  margin: 0.5em 0;
+  width: 200px;
+  height: 100px;
+  font-size: large;
+  background-color: #137f41;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

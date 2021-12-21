@@ -70,7 +70,7 @@ export class DialogformComponent implements OnInit {
     {val:"Factores"},
     {val:"Todos"}
   ]
-  
+
 
   constructor(private animalService:AnimalService, private reporteService:ReporteService) { }
 
@@ -101,9 +101,11 @@ export class DialogformComponent implements OnInit {
 
   beginSearch(form:NgForm){
     let reporte:Reporte={criterio:this.selectedCriterio,fuente:this.selectedFuente,fechaInicio:this.fechainicio,fechaFin:this.fechaFin,dato:form.value.dato}
-    
+
+
     this.reporteService.sendData(reporte);
-    
+
+
   }
 
   dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {

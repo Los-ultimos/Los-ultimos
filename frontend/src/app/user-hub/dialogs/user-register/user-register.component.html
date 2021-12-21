@@ -1,0 +1,39 @@
+<form (submit)="onSignup(signupForm)" #signupForm="ngForm" >
+  <h2 mat-dialog-title>Datos del Nuevo Usuario</h2>
+    <hr>
+    <mat-dialog-content class="mat-typography">
+  <div class="container">
+    <mat-form-field>
+      <input matInput name="name" ngModel type="text" placeholder="Nombre" #nombreInput="ngModel" required>
+      <mat-error *ngIf="nombreInput.invalid">Ingresar un nombre valido.</mat-error>
+    </mat-form-field>
+  <mat-form-field>
+    <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+    <mat-error *ngIf="emailInput.invalid">Ingresar un E-mail valido.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+    <mat-error *ngIf="passwordInput.invalid">Ingresar contraseña valida.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Nivel De Acceso</mat-label>
+    <mat-select name="Access"
+    matInput
+    required
+    type="text"
+    ngModel
+    #access>
+      <mat-option value="Admin">Administrador</mat-option>
+      <mat-option value="Advanced">Nivel Avanzado</mat-option>
+      <mat-option value="Basic">Nivel Basico</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-dialog-actions>
+
+
+  <button mat-raised-button type="submit" mat-dialog-close>Registrar</button>
+    </mat-dialog-actions>
+</div>
+</mat-dialog-content>
+
+</form>

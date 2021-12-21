@@ -1,43 +1,20 @@
 <main>
   <img class="icon-big" src="assets/white.jpg" alt="icon-big">
   <h3>Ingresa:</h3>
-  <mat-form-field appearance="outline">
-    <mat-label for="user">Usuario: </mat-label>
-    <input
-    matInput
-    name="user"
-    type="text"
-    ngModel
-    #user
-    >
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label for="password">Contraseña: </mat-label>
-    <input
-    matInput
-    name="password"
-    type="password"
-    ngModel
-    #password
-    >
-</mat-form-field>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <main>
 
-<mat-form-field appearance="outline">
-  <mat-label>Acceso</mat-label>
-  <mat-select name="Access"
-  matInput
-  required
-  type="text"
-  ngModel
-  #access>
-    <mat-option value="Admin">Administrador</mat-option>
-    <mat-option value="Advanced">Nivel Avanzado</mat-option>
-    <mat-option value="Basic">Nivel Basico</mat-option>
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Ingresar un E-mail valido.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Ingresar una contraseña valida.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" >Iniciar Sesion</button>
+  </main>
 
-  </mat-select>
-</mat-form-field>
-<a mat-button  [routerLink]="['/main-hub', access.value]">Iniciar Sesion</a>
-
-
+  </form>
 
 </main>

@@ -12,7 +12,7 @@ export class ReporteService {
 
   sendData(reporte:Reporte){
     this.resultados=reporte;
-    
+
   }
 
   getData(){
