@@ -1,4 +1,5 @@
 fieldType{
+
   font-family: 'inter';
   justify-items: center;
   width: 50%;
@@ -84,3 +85,4 @@ display: none;
 input.telephone-right-align {
 -moz-appearance: textfield;
 }
+

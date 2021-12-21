@@ -1,4 +1,5 @@
 
+
 h1 {
   font-size:50px;
   color: #137f41;
@@ -19,13 +20,10 @@ h1 {
         padding: 1em 0em 0em 0em;
         background-color: inherit;
 
-      }
-
       #header {
         margin: 1em 1em 1em 1em;
         color: #137f41;
       }
-
 
 
       .container2 {
@@ -34,6 +32,7 @@ h1 {
         justify-content: space-between;
         flex-wrap: wrap;
       }
+
 
       .selectors {
         display: flex;
@@ -52,6 +51,7 @@ h1 {
       p {
         margin: 1em 0;
       }
+
 
       img{
         width: 80px;
@@ -86,4 +86,4 @@ h1 {
         font-size: large;
         background-color: #137f41;
         margin-left: 20px;
-      }
+

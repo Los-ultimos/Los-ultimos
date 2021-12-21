@@ -417,6 +417,7 @@ export class ReportesComponent implements OnInit {
   }
 
 
+
   ngOnInit(): void {
 
   }
@@ -424,6 +425,7 @@ export class ReportesComponent implements OnInit {
   submitRequest(){
 
   }
+
 
 
 
@@ -437,6 +439,7 @@ export class ReportesComponent implements OnInit {
       this.getDepartments()
     })
   }
+
 
   getDepartments() {
 
@@ -452,7 +455,9 @@ export class ReportesComponent implements OnInit {
       dateObjectStart= new Date(this.selected.fechaInicio);
       dateObjectEnd = new Date(this.selected.fechaFin);
       console.log("Filled")
+
     }
+
 
 
     if (this.selected.fuente=="Animales"){
@@ -538,10 +543,10 @@ export class ReportesComponent implements OnInit {
 
           this.animals=this.animals.filter(animal=>animal.registryDate>=dateObjectStart && animal.registryDate<=dateObjectEnd)
         }
+
         this.selectColumn=this.animColumn;
         this.columns= this.animColumn.map(c=>c.columnDef)
         this.dataSource=this.animals;
-
 
 
       })
@@ -632,6 +637,7 @@ export class ReportesComponent implements OnInit {
             this.atenciones=atenciones.filter(atencion=>atencion.hidra.toLowerCase() === this.selected.dato.toLowerCase())
           }else if( this.selected.criterio=="Todos"){
             this.atenciones=atenciones;
+
           }
         } else {
           this.atenciones=atenciones;
@@ -679,7 +685,9 @@ export class ReportesComponent implements OnInit {
           this.datoMuerteDiciembre=decesos.filter(deceso=>this.dateRet(deceso.registroDeceso).getMonth()===11).length;
 
 
+
         this.lineChartData.datasets[0].data= [
+
           this.datoMuerteEnero,
           this.datoMuerteFebrero,
           this.datoMuerteMarzo,
@@ -697,9 +705,11 @@ export class ReportesComponent implements OnInit {
             this.datoGeneroMCat,this.datoGeneroFCat
           ];
 
+
           this.barChartData.datasets[1].data=[
             this.datoGeneroMCan,this.datoGeneroFCan
           ];
+
 
           this.barChartData.datasets[2].data=[
             this.datoGeneroMEquino,this.datoGeneroFEquino
@@ -734,10 +744,12 @@ export class ReportesComponent implements OnInit {
             this.decesos=decesos.filter(deceso=>deceso.factores.toLowerCase().includes(pattern2))
           } else if( this.selected.criterio=="Todos"){
             this.decesos=decesos;
+
           }
         } else {
           this.decesos=decesos;
         }
+
 
         if (this.selected.fechaInicio!="" && this.selected.fechaFin!=""){
           this.decesos=this.decesos.filter(deceso=>this.dateRet(deceso.registroDeceso)>=dateObjectStart && this.dateRet(deceso.registroDeceso)<=dateObjectEnd)
@@ -782,9 +794,11 @@ export class ReportesComponent implements OnInit {
             this.datoGeneroMCat,this.datoGeneroFCat
           ];
 
+
           this.barChartData.datasets[1].data=[
             this.datoGeneroMCan,this.datoGeneroFCan
           ];
+
 
           this.barChartData.datasets[2].data=[
             this.datoGeneroMEquino,this.datoGeneroFEquino
@@ -803,7 +817,9 @@ export class ReportesComponent implements OnInit {
 
 
          this.dataSource2=[
+
           {entity: "Fichas Médicas registradas",counted:ficha.length},
+
           {entity: "Fichas Médicas atendidas",counted:ficha.filter(ficha=>ficha.state.toLowerCase()!="en espera").length},
           {entity: "Fichas Médicas en espera",counted:ficha.filter(ficha=>ficha.state.toLowerCase()=="en espera").length},
           {entity:"Fichas Médicas con atención frecuente en albergue",counted:this.datoFiAtFH+this.datoFiAtFM},
@@ -828,7 +844,7 @@ export class ReportesComponent implements OnInit {
               this.fichas=ficha.filter(ficha=>ficha.typeConsult.toLowerCase()==this.selected.dato.toLowerCase())
             } else if( this.selected.criterio=="Todos"){
               this.fichas=ficha;
-            }
+
           } else {
             this.fichas=ficha;
           }
@@ -843,8 +859,6 @@ export class ReportesComponent implements OnInit {
         this.dataSource=this.fichas;
         })
     }
-
-
 
 
 
@@ -873,6 +887,7 @@ export class ReportesComponent implements OnInit {
     // }
 
 
+
   }
 
 
@@ -886,3 +901,4 @@ export class ReportesComponent implements OnInit {
 
 
 }
+

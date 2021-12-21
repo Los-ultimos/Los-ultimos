@@ -23,6 +23,8 @@
     "angular-highcharts": "^13.0.1",
     "chartjs-plugin-datalabels": "^2.0.0",
     "highcharts": "^9.3.2",
+    "chart.js": "^3.6.2",
+
     "highcharts-angular": "^3.0.0",
     "ng2-charts": "^3.0.2",
     "ng2-search-filter": "^0.5.1",

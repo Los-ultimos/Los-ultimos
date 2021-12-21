@@ -12,10 +12,12 @@ const Deceso = require('./models/deceso')
 const Atencion = require('./models/atencion')
 
 const keygen = require('./keygen')
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("./models/user");
+
 
 
 //Mongo
@@ -88,6 +90,7 @@ app.get('/api/atencion', async (req,res)=>(
     })
 ))
 
+
 //Animals
 
 
@@ -155,6 +158,8 @@ app.get('/api/animal', async (req,res)=>(
           })
     })
 ))
+
+
 
 app.delete("/api/animal/:id", (req, res, next) => {
     Animal.deleteOne({ _id: req.params.id }).then(result => {
@@ -309,6 +314,8 @@ app.get('/api/deceso', async (req,res)=>{
           })
     })
 })
+
+
 
 app.post('/api/deceso', async (req,res)=>{
     const deceso = new Deceso({

@@ -1,4 +1,5 @@
 export interface Reporte{
+
   fuente:string,
   criterio:string,
   fechaInicio:string,
@@ -6,3 +7,4 @@ export interface Reporte{
   dato:string
 
 }
+

@@ -8,9 +8,11 @@
       </button>
     </div>
     <div class="links">
+
       <a mat-button (click)="setRoute('main'); drawer.toggle() ; showing=true">Animales</a>
       <a mat-button (click)="setRoute('reportes'); drawer.toggle() ; showing=true">Reportes</a>
       <a mat-button *ngIf="mode==='Admin'" (click)="setRoute('user') ; drawer.toggle() ; showing=true">Usuarios</a>
+
     </div>
     <span class="example-spacer"></span>
 

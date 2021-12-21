@@ -102,7 +102,9 @@ export class DialogformComponent implements OnInit {
   beginSearch(form:NgForm){
     let reporte:Reporte={criterio:this.selectedCriterio,fuente:this.selectedFuente,fechaInicio:this.fechainicio,fechaFin:this.fechaFin,dato:form.value.dato}
 
+
     this.reporteService.sendData(reporte);
+
 
   }
 
