@@ -8,14 +8,13 @@
       </button>
     </div>
     <div class="links">
-      <a mat-button>Animales</a>
-      <a mat-button>Servicios Veterinarios</a>
-      <a mat-button>Reportes</a>
-      <a mat-button *ngIf="mode==='Admin'">Crear Usuario</a>
+      <a mat-button (click)="setRoute('main'); drawer.toggle() ; showing=true">Animales</a>
+      <a mat-button (click)="setRoute('reportes'); drawer.toggle() ; showing=true">Reportes</a>
+      <a mat-button *ngIf="mode==='Admin'" (click)="setRoute('user') ; drawer.toggle() ; showing=true">Usuarios</a>
     </div>
     <span class="example-spacer"></span>
 
-    <a class="log-out" mat-button [routerLink]="['']">Cerrar Sesion</a>
+    <a mat-button (click)="onLogout()">Cerrar Sesion</a>
 
   </mat-drawer>
   <mat-drawer-content>
@@ -26,7 +25,15 @@
      <span class="example-spacer"></span>
      <img *ngIf="showing" class="icon" src="assets/icon.jpg" alt="icon">
     </mat-toolbar>
-    <app-main-hub></app-main-hub>
+    <div *ngIf="headRoute=='main'">
+      <app-main-hub></app-main-hub>
+    </div>
+    <div *ngIf="headRoute=='user'">
+      <app-user-hub></app-user-hub>
+    </div>
+    <div *ngIf="headRoute=='reportes'">
+      <app-reportes></app-reportes>
+    </div>
   </mat-drawer-content>
 
 </mat-drawer-container>

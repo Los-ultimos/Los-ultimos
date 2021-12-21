@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Ficha } from 'src/app/models/ficha.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { FichaService } from 'src/app/services/ficha.service';
 import { RegisterAtencionComponent } from '../../dialogs/register-atencion/register-atencion.component';
 import { RegisterFichaComponent } from '../../dialogs/register-ficha/register-ficha.component';
@@ -20,7 +21,7 @@ export class UserFichasComponent implements OnInit, OnDestroy{
 
   mode:any;
 
-  constructor(private fichaService:FichaService, public dialog: MatDialog, public route: ActivatedRoute) { }
+  constructor(private fichaService:FichaService, public dialog: MatDialog, public route: ActivatedRoute, private authService:AuthService) { }
 
 
 
@@ -29,11 +30,8 @@ export class UserFichasComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (typeof paramMap.get("mode") ==='string') {
-        this.mode = paramMap.get("mode");
-      }
-  });
+    this.mode=this.authService.getUser().access
+
     this.fichaService.getFichas()
     this.fichasSub = this.fichaService.getFichasListener()
     .subscribe((fichas:Ficha[])=>{

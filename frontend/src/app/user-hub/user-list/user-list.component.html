@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 id="header"> Registro de Decesos</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let user of users">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{user.name}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>{{user.email}}</p>
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div class="container2">
+        <p><b>Nivel de Acceso: </b> {{user.access}}</p>
+
+
+
+
+
+        <div class="selectors">
+          <button mat-flat-button (click)="openDialog(user)">Editar Usuario</button>
+          <button *ngIf="user.access!=='Admin'" mat-flat-button color="warn" (click)="deleteUser(user)">Eliminar Usuario</button>
+
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

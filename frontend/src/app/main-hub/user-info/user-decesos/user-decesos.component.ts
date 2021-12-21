@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Deceso } from 'src/app/models/deceso.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { DecesosService } from 'src/app/services/decesos.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class UserDecesosComponent implements OnInit {
 
   mode:any
 
-  constructor(private decesoservice:DecesosService, public dialog: MatDialog, public route: ActivatedRoute) { }
+  constructor(private decesoservice:DecesosService, public dialog: MatDialog, public route: ActivatedRoute, private authService:AuthService) { }
 
 
 
@@ -30,11 +31,8 @@ export class UserDecesosComponent implements OnInit {
 
 
 
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (typeof paramMap.get("mode") ==='string') {
-        this.mode = paramMap.get("mode");
-      }
-  });
+    this.mode=this.authService.getUser().access
+
 
     this.decesoservice.getDecesos()
     this.decesosSub = this.decesoservice.getDecesoListener()

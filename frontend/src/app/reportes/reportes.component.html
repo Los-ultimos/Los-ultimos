@@ -1,0 +1,163 @@
+<h1>Generador de reportes</h1>
+
+<div>
+    <button mat-flat-button color="primary" id="but" (click)="openDialog()">Generar reporte</button>
+</div>
+
+<h2 id="header"> Tabla de resultados</h2>
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-28">
+
+  <ng-container *ngFor="let column of selectColumn" [matColumnDef]="column.columnDef">
+    <mat-header-cell *matHeaderCellDef>{{column.header}}</mat-header-cell>
+    <mat-cell *matCellDef="let object">{{column.cell(object)}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+
+</mat-table>
+
+
+<h2 id="header"> Tabla de conteo rápido</h2>
+<mat-table [dataSource]="dataSource2" style="width:match-parent; margin-left: 30%; margin-right: 30%" matSort class="mat-elevation-28">
+
+  <ng-container matColumnDef="entity">
+    <mat-header-cell *matHeaderCellDef> Campo </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.entity}} </mat-cell>
+  </ng-container>
++
+  <ng-container matColumnDef="counted">
+    <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.counted}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+
+
+<div class="container">
+
+</div>
+<div class="container" *ngIf="isShown">
+  <table>
+    <tr>
+      <th>
+        <h2 id="header" style="align-content: center;"> Gráfico de barras de animales por genero y especie</h2>
+        <canvas baseChart style="direction: ltr;"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType">
+        </canvas>
+      </th>
+      <th> <h2 id="header" style="align-content: center;"> Gráfico de torta de animales por rangos de edades</h2>
+        <canvas baseChart
+        [data]="pieChartData"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins">
+      </canvas></th>
+    </tr>
+  </table>
+</div>
+
+<div class="container" *ngIf="isShownDecesos">
+  <table>
+    <tr>
+      <th>
+        <h2 id="header" style="align-content: center;"> Gráfico de barras de decesos por genero y especie</h2>
+        <canvas baseChart style="direction: ltr;"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType">
+        </canvas>
+      </th>
+      <th> <h2 id="header" style="align-content: center;"> Gráfico de linea de meses del año</h2>
+        <canvas baseChart width="400" height="400"
+                [data]="lineChartData"
+                [options]="lineChartOptions"
+                [type]="lineChartType"></canvas></th>
+    </tr>
+  </table>
+</div>
+
+
+<div class="container"  *ngIf="isShownAtencion">
+  <table>
+    <tr>
+      <th>
+        <h2 id="header" style="align-content: center;"> Gráfico de barras de estados de atención </h2>
+        <canvas baseChart style="direction: ltr;"
+          [data]="barChartData2"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType">
+        </canvas>
+      </th>
+      <th> <h2 id="header" style="align-content: center;"> Gráfico de torta de estado clínico</h2>
+        <canvas baseChart
+        [data]="pieChartData2"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"></canvas></th>
+        <th>  <h2 id="header" style="align-content: center;"> Gráfico de anillo de mucosas</h2>
+          <canvas baseChart
+          [data]="doughnutChartData"
+          [type]="doughnutChartType">
+        </canvas>
+        </th>
+    </tr>
+    <tr>
+      <th>
+        <h2 id="header" style="align-content: center;"> Gráfico de barras de estados de apetito </h2>
+        <canvas baseChart style="direction: ltr;"
+          [data]="barChartData3"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType">
+        </canvas>
+      </th>
+      <th>  <h2 id="header" style="align-content: center;"> Gráfico de anillo de niveles de hidratación</h2>
+        <canvas baseChart
+        [data]="doughnutChartData2"
+        [type]="doughnutChartType">
+      </canvas>
+      </th>
+    </tr>
+  </table>
+</div>
+
+<div class="container" *ngIf="isShownFichas">
+  <table>
+    <tr>
+      <th>
+        <h2 id="header" style="align-content: center;"> Gráfico de barras de fichas médicas de animales por sexo y especie</h2>
+        <canvas baseChart style="direction: ltr;"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType">
+        </canvas>
+      </th>
+      <th> <h2 id="header" style="align-content: center;"> Gráfico de torta de tipos de consultas por especie</h2>
+        <canvas baseChart
+        [data]="pieChartData3"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins">
+        </canvas>
+      </th>
+        <th>  <h2 id="header" style="align-content: center;"> Gráfico radar de frecuencia de atención en el albergue por sexo</h2>
+          <canvas baseChart
+          [data]="radarChartData"
+          [options]="radarChartOptions"
+          [type]="radarChartType">
+        </canvas>
+        </th>
+    </tr>
+  </table>
+</div>

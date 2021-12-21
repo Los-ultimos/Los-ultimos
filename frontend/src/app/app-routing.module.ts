@@ -6,7 +6,7 @@ import { MainHubComponent } from './main-hub/main-hub.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'main-hub/:mode', component: HeaderComponent },
+  { path: 'main-hub', component: HeaderComponent },
 
 ];
 

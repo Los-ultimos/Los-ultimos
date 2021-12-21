@@ -1,0 +1,89 @@
+
+h1 {
+  font-size:50px;
+  color: #137f41;
+  font-family: 'Inter';
+ text-align: center;
+ padding-top: 25px;
+ font-weight: bold;
+  }
+
+  h2 {
+    font-size: 30px;
+   text-align: center;
+   padding-top: 25px;
+   font-weight: bold;
+    }
+
+    .container {
+        padding: 1em 0em 0em 0em;
+        background-color: inherit;
+
+      }
+
+      #header {
+        margin: 1em 1em 1em 1em;
+        color: #137f41;
+      }
+
+
+
+      .container2 {
+        margin-right: 5%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .selectors {
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      button {
+        margin: 2em 1em;
+        padding: 1em 2em;
+
+        background-color: #137f41;
+        color: white;
+      }
+
+      p {
+        margin: 1em 0;
+      }
+
+      img{
+        width: 80px;
+        height: 80px;
+        margin: 0 1.5em 0 0;
+      }
+
+      .animalinfo{
+        display: flex;
+        flex-direction: row;
+      }
+      .spacer{
+        flex-grow: 1;
+      }
+      .last{
+        margin-right: 50%;
+      }
+
+      .otrasOpciones{
+        margin: 1em auto;
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+      }
+      .buttons{
+        margin: 2em 1em 2em 4em;
+      }
+      #but {
+        margin: 0.5em 0;
+        width: 200px;
+        height: 100px;
+        font-size: large;
+        background-color: #137f41;
+        margin-left: 20px;
+      }
